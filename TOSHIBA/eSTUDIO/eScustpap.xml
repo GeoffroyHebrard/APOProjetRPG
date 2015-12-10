@@ -1,0 +1,126 @@
+<!-- Version: 6.36.3156.0 -->
+<!-- Default Custom Paper Size Settings -->
+<FWPersistentSettings>
+    <Item id="CUSTOM_FORM_NAMES"> <!-- Map Form Name -> Internal Name-->
+        <Item id="Custom Paper Size 01">
+            <Item id="name" value="$IDS_STB_CUSTOMPAP1;"/>
+            <Item id="width" value="2100"/>
+            <Item id="height" value="2970"/>
+            <Item id="default" value="true"/>
+        </Item>
+        <Item id="Custom Paper Size 02" >
+            <Item id="name" value="$IDS_STB_CUSTOMPAP2;"/>
+            <Item id="width" value="2100"/>
+            <Item id="height" value="2970"/>
+            <Item id="default" value="true"/>
+        </Item>
+        <Item id="Custom Paper Size 03" >
+            <Item id="name" value="$IDS_STB_CUSTOMPAP3;"/>
+            <Item id="width" value="2100"/>
+            <Item id="height" value="2970"/>
+            <Item id="default" value="true"/>
+        </Item>
+        <Item id="Custom Paper Size 04" >
+            <Item id="name" value="$IDS_STB_CUSTOMPAP4;"/>
+            <Item id="width" value="2100"/>
+            <Item id="height" value="2970"/>
+            <Item id="default" value="true"/>
+        </Item>
+        <Item id="Custom Paper Size 05" >
+            <Item id="name" value="$IDS_STB_CUSTOMPAP5;"/>
+            <Item id="width" value="2100"/>
+            <Item id="height" value="2970"/>
+            <Item id="default" value="true"/>
+        </Item>
+        <Item id="Custom Paper Size 06" >
+            <Item id="name" value="$IDS_STB_CUSTOMPAP6;"/>
+            <Item id="width" value="2100"/>
+            <Item id="height" value="2970"/>
+            <Item id="default" value="true"/>
+        </Item>
+        <Item id="Custom Paper Size 07" >
+            <Item id="name" value="$IDS_STB_CUSTOMPAP7;"/>
+            <Item id="width" value="2100"/>
+            <Item id="height" value="2970"/>
+            <Item id="default" value="true"/>
+        </Item>
+        <Item id="Custom Paper Size 08" >
+            <Item id="name" value="$IDS_STB_CUSTOMPAP8;"/>
+            <Item id="width" value="2100"/>
+            <Item id="height" value="2970"/>
+            <Item id="default" value="true"/>
+        </Item>
+        <Item id="Custom Paper Size 09" >
+            <Item id="name" value="$IDS_STB_CUSTOMPAP9;"/>
+            <Item id="width" value="2100"/>
+            <Item id="height" value="2970"/>
+            <Item id="default" value="true"/>
+        </Item>
+        <Item id="Custom Paper Size 10" >
+            <Item id="name" value="$IDS_STB_CUSTOMPAP10;"/>
+            <Item id="width" value="2100"/>
+            <Item id="height" value="2970"/>
+            <Item id="default" value="true"/>
+        </Item>
+        <Item id="Custom Paper Size 11" >
+            <Item id="name" value="$IDS_STB_CUSTOMPAP11;"/>
+            <Item id="width" value="2100"/>
+            <Item id="height" value="2970"/>
+            <Item id="default" value="true"/>
+        </Item>
+        <Item id="Custom Paper Size 12" >
+            <Item id="name" value="$IDS_STB_CUSTOMPAP12;"/>
+            <Item id="width" value="2100"/>
+            <Item id="height" value="2970"/>
+            <Item id="default" value="true"/>
+        </Item>
+        <Item id="Custom Paper Size 13" >
+            <Item id="name" value="$IDS_STB_CUSTOMPAP13;"/>
+            <Item id="width" value="2100"/>
+            <Item id="height" value="2970"/>
+            <Item id="default" value="true"/>
+        </Item>
+        <Item id="Custom Paper Size 14" >
+            <Item id="name" value="$IDS_STB_CUSTOMPAP14;"/>
+            <Item id="width" value="2100"/>
+            <Item id="height" value="2970"/>
+            <Item id="default" value="true"/>
+        </Item>
+        <Item id="Custom Paper Size 15" >
+            <Item id="name" value="$IDS_STB_CUSTOMPAP15;"/>
+            <Item id="width" value="2100"/>
+            <Item id="height" value="2970"/>
+            <Item id="default" value="true"/>
+        </Item>
+        <Item id="Custom Paper Size 16" >
+            <Item id="name" value="$IDS_STB_CUSTOMPAP16;"/>
+            <Item id="width" value="2100"/>
+            <Item id="height" value="2970"/>
+            <Item id="default" value="true"/>
+        </Item>
+        <Item id="Custom Paper Size 17" >
+            <Item id="name" value="$IDS_STB_CUSTOMPAP17;"/>
+            <Item id="width" value="2100"/>
+            <Item id="height" value="2970"/>
+            <Item id="default" value="true"/>
+        </Item>
+        <Item id="Custom Paper Size 18" >
+            <Item id="name" value="$IDS_STB_CUSTOMPAP18;"/>
+            <Item id="width" value="2100"/>
+            <Item id="height" value="2970"/>
+            <Item id="default" value="true"/>
+        </Item>
+        <Item id="Custom Paper Size 19" >
+            <Item id="name" value="$IDS_STB_CUSTOMPAP19;"/>
+            <Item id="width" value="2100"/>
+            <Item id="height" value="2970"/>
+            <Item id="default" value="true"/>
+        </Item>
+        <Item id="Custom Paper Size 20" >
+            <Item id="name" value="$IDS_STB_CUSTOMPAP20;"/>
+            <Item id="width" value="2100"/>
+            <Item id="height" value="2970"/>
+            <Item id="default" value="true"/>
+        </Item>
+    </Item>
+</FWPersistentSettings>

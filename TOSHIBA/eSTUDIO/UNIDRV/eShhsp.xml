@@ -1,0 +1,86 @@
+<!-- Version: 6.36.3156.0 -->
+<!-- hsp persistenter settings file -->
+<FWPersistentSettings>
+    <Item id="HSP">
+        <Item id="None">
+            <Item id="id" value="None"/>
+            <Item id="value" value="None"/>
+            <Item id="label" value="$IDS_HSPSTR_STYLE0;"/>
+            <Item id="HSP_tbStyleName" value="None"/>
+            <Item id="HSP_cbStrings1" value="0"/>
+            <Item id="HSP_tbStrings1" value=""/>
+            <Item id="HSP_cbStrings2" value="0"/>
+            <Item id="HSP_tbStrings2" value=""/>
+            <Item id="HSP_cbStrings3" value="0"/>
+            <Item id="HSP_tbStrings3" value=""/>
+            <Item id="HSP_cbFontName" value=""/>
+            <Item id="HSP_cbFontSize" value="0"/>
+            <Item id="HSP_cbPosition" value="0"/>
+            <Item id="HSP_tbAngle" value="0"/>
+            <Item id="HSP_chRepeatString" value="0"/>
+            <Item id="HSP_cbPattern" value="0"/>
+            <Item id="HSP_cbDensity" value="0"/>
+            <Item id="HSP_tbVisibleDotDensity" value="0"/>
+            <Item id="HSP_tbInvisibleDotDensity" value="0"/>
+            <Item id="HSP_rSettingEffect" value="0"/>
+            <Item id="HSP_chStringOnly" value="0"/>
+            <Item id="txt_EffHSPText" value="Preview01.bmp"/>
+        </Item>
+        <Item id="CopyCopy">
+            <Item id="id" value="CopyCopy"/>
+            <Item id="value" value="CopyCopy"/>
+            <Item id="label" value="$IDS_HSPSTR_STYLE1;"/>
+            <Item id="HSP_tbStyleName" value="$IDS_HSPSTR_STYLE1;"/>
+            <Item id="HSP_cbStrings1" value="1"/>
+            <Item id="HSP_tbStrings1" value="$IDS_HSPSTR_STRING;"/>
+            <Item id="HSP_cbStrings2" value="0"/>
+            <Item id="HSP_tbStrings2" value=""/>
+            <Item id="HSP_cbStrings3" value="0"/>
+            <Item id="HSP_tbStrings3" value=""/>
+            <Item id="HSP_cbFontName" value="Arial"/>
+            <Item id="HSP_cbFontSize" value="100"/>
+            <Item id="HSP_cbPosition" value="0"/>
+            <Item id="HSP_tbAngle" value="45"/>
+            <Item id="HSP_chRepeatString" value="true"/>
+            <Item id="HSP_cbPattern" value="0"/>
+            <Item id="HSP_cbDensity" value="1"/>
+            <Item id="HSP_tbVisibleDotDensity" value="0"/>
+            <Item id="HSP_tbInvisibleDotDensity" value="0"/>
+            <Item id="HSP_rSettingEffect" value="0"/>
+            <Item id="HSP_chStringOnly" value="false"/>
+            <Item id="txt_EffHSPText" value="Preview01.bmp"/>
+        </Item>
+        <Item id="Name+Time">
+            <Item id="id" value="Name+Time"/>
+            <Item id="value" value="Name+Time"/>
+            <Item id="label" value="$IDS_HSPSTR_STYLE2;"/>
+            <Item id="HSP_tbStyleName" value="$IDS_HSPSTR_STYLE2;"/>
+            <Item id="HSP_cbStrings1" value="1"/>
+            <Item id="HSP_tbStrings1" value="$IDS_HSPSTR_STRING;"/>
+            <Item id="HSP_cbStrings2" value="5"/>
+            <Item id="HSP_tbStrings2" value=""/>
+            <Item id="HSP_cbStrings3" value="2"/>
+            <Item id="HSP_tbStrings3" value=""/>
+            <Item id="HSP_cbFontName" value="Arial"/>
+            <Item id="HSP_cbFontSize" value="48"/>
+            <Item id="HSP_cbPosition" value="0"/>
+            <Item id="HSP_tbAngle" value="0"/>
+            <Item id="HSP_chRepeatString" value="false"/>
+            <Item id="HSP_cbPattern" value="0"/>
+            <Item id="HSP_cbDensity" value="1"/>
+            <Item id="HSP_tbVisibleDotDensity" value="0"/>
+            <Item id="HSP_tbInvisibleDotDensity" value="0"/>
+            <Item id="HSP_rSettingEffect" value="0"/>
+            <Item id="HSP_chStringOnly" value="false"/>
+            <Item id="txt_EffHSPText" value="Preview01.bmp"/>
+        </Item>
+        <Item id="Enhanced(Option)">
+            <Item id="id" value="$IDS_ST_ENHANCED;"/>
+            <Item id="value" value="$IDS_ST_ENHANCED;"/>
+            <Item id="label" value="$IDS_ST_ENHANCED;"/>
+            <Item id="HSPEnhanced_lstDensityTintBlock" value=""/>
+            <Item id="HSPEnhanced_txtSuppTrackInfo" value=""/>
+            <Item id="HSPEnhanced_DTBImage" value=""/>
+        </Item>
+    </Item>
+</FWPersistentSettings>

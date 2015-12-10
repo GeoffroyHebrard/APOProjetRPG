@@ -1,0 +1,115 @@
+<!-- Version: 6.36.3156.0 -->
+<!-- Profile persistenter settings file -->
+<FWPersistentSettings>
+    <Item id="profiles">
+        <Item id="None" value="">
+            <Item id="label" value="$IDS_CMB_NONE;"/>
+            <Item id="profile" value=""/>
+        </Item>
+        <Item id="prof000" value="prof000.xml">
+            <Item id="label" value="$IDS_CMBPROFILE_BW_DPLX_STAPLE_PUNCH_2IN1;"/>
+            <Item id="profile" value="BW, Duplex, Staple, Punch and 2in1"/>
+            <Item id="preview_img_FCBooklet" value="red.bmp"/>
+            <Item id="preview_img_ISDoc" value="red.bmp"/>
+            <Item id="preview_img_ILDoc" value="red.bmp"/>
+            <Item id="preview_img_IS" value="red.bmp"/>
+            <Item id="preview_img_IL" value="red.bmp"/>
+            <Item id="preview_img_PaperMain" value="BW_Port_2in1_LR_Long_338.bmp"/>
+            <Item id="preview_img_TabPaper" value="red.bmp"/>
+            <Item id="preview_img_DrawBorders" value=""/>
+            <Item id="preview_img_OVL" value="red.bmp"/>
+            <Item id="preview_img_WTM" value="red.bmp"/>
+            <Item id="preview_img_FCMain" value="red.bmp"/>
+            <Item id="preview_img_FCSub" value="red.bmp"/>
+            <Item id="preview_img_Folding" value=""/>
+            <Item id="preview_img_Staple" value="Land_Staple_UL_137.bmp"/>
+            <Item id="preview_img_HolePunch" value=""/>
+            <Item id="preview_img_BC" value="red.bmp"/>
+            <Item id="preview_img_HSP" value="red.bmp"/>
+        </Item>
+        <Item id="prof001" value="prof001.xml">
+            <Item id="label" value="$IDS_CMBPROFILE_CLR_BKLT;"/>
+            <Item id="profile" value="Colour Booklet"/>
+            <Item id="preview_img_FCBooklet" value="red.bmp"/>
+            <Item id="preview_img_ISDoc" value="red.bmp"/>
+            <Item id="preview_img_ILDoc" value="red.bmp"/>
+            <Item id="preview_img_IS" value="red.bmp"/>
+            <Item id="preview_img_IL" value="red.bmp"/>
+            <Item id="preview_img_PaperMain" value="Color_Port_Booklet_LR_237.bmp"/>
+            <Item id="preview_img_TabPaper" value="red.bmp"/>
+            <Item id="preview_img_DrawBorders" value=""/>
+            <Item id="preview_img_OVL" value="red.bmp"/>
+            <Item id="preview_img_WTM" value="red.bmp"/>
+            <Item id="preview_img_FCMain" value="red.bmp"/>
+            <Item id="preview_img_FCSub" value="red.bmp"/>
+            <Item id="preview_img_Folding" value=""/>
+            <Item id="preview_img_Staple" value="Port_Staple_CD_Booklet_271.bmp"/>
+            <Item id="preview_img_HolePunch" value=""/>
+            <Item id="preview_img_BC" value="red.bmp"/>
+            <Item id="preview_img_HSP" value="red.bmp"/>
+        </Item>
+        <Item id="prof002" value="prof002.xml">
+            <Item id="label" value="$IDS_CMBPROFILE_DPLX_STAPLE;"/>
+            <Item id="profile" value="Duplex and Staple"/>
+            <Item id="preview_img_FCBooklet" value="red.bmp"/>
+            <Item id="preview_img_ISDoc" value="red.bmp"/>
+            <Item id="preview_img_ILDoc" value="red.bmp"/>
+            <Item id="preview_img_IS" value="red.bmp"/>
+            <Item id="preview_img_IL" value="red.bmp"/>
+            <Item id="preview_img_PaperMain" value="Color_Port_Long_160.bmp"/>
+            <Item id="preview_img_TabPaper" value="red.bmp"/>
+            <Item id="preview_img_DrawBorders" value=""/>
+            <Item id="preview_img_OVL" value="red.bmp"/>
+            <Item id="preview_img_WTM" value="red.bmp"/>
+            <Item id="preview_img_FCMain" value="red.bmp"/>
+            <Item id="preview_img_FCSub" value="red.bmp"/>
+            <Item id="preview_img_Folding" value=""/>
+            <Item id="preview_img_Staple" value="Port_Staple_UL_277.bmp"/>
+            <Item id="preview_img_HolePunch" value=""/>
+            <Item id="preview_img_BC" value="red.bmp"/>
+            <Item id="preview_img_HSP" value="red.bmp"/>
+        </Item>
+        <Item id="prof003" value="prof003.xml">
+            <Item id="label" value="$IDS_CMBPROFILE_DPLX_STAPLE_PUNCH_2IN1;"/>
+            <Item id="profile" value="Duplex, Staple, Punch and 2in1"/>
+            <Item id="preview_img_FCBooklet" value="red.bmp"/>
+            <Item id="preview_img_ISDoc" value="red.bmp"/>
+            <Item id="preview_img_ILDoc" value="red.bmp"/>
+            <Item id="preview_img_IS" value="red.bmp"/>
+            <Item id="preview_img_IL" value="red.bmp"/>
+            <Item id="preview_img_PaperMain" value="Color_Port_2in1_LR_Long_165.bmp"/>
+            <Item id="preview_img_TabPaper" value="red.bmp"/>
+            <Item id="preview_img_DrawBorders" value=""/>
+            <Item id="preview_img_OVL" value="red.bmp"/>
+            <Item id="preview_img_WTM" value="red.bmp"/>
+            <Item id="preview_img_FCMain" value="red.bmp"/>
+            <Item id="preview_img_FCSub" value="red.bmp"/>
+            <Item id="preview_img_Folding" value=""/>
+            <Item id="preview_img_Staple" value="Land_Staple_UL_137.bmp"/>
+            <Item id="preview_img_HolePunch" value=""/>
+            <Item id="preview_img_BC" value="red.bmp"/>
+            <Item id="preview_img_HSP" value="red.bmp"/>
+        </Item>
+        <Item id="prof004" value="prof004.xml">
+            <Item id="label" value="$IDS_CMBPROFILE_DPLX_STAPLE_PUNCH;"/>
+            <Item id="profile" value="Duplex, Staple and Punch"/>
+            <Item id="preview_img_FCBooklet" value="red.bmp"/>
+            <Item id="preview_img_ISDoc" value="red.bmp"/>
+            <Item id="preview_img_ILDoc" value="red.bmp"/>
+            <Item id="preview_img_IS" value="red.bmp"/>
+            <Item id="preview_img_IL" value="red.bmp"/>
+            <Item id="preview_img_PaperMain" value="Color_Port_Long_160.bmp"/>
+            <Item id="preview_img_TabPaper" value="red.bmp"/>
+            <Item id="preview_img_DrawBorders" value=""/>
+            <Item id="preview_img_OVL" value="red.bmp"/>
+            <Item id="preview_img_WTM" value="red.bmp"/>
+            <Item id="preview_img_FCMain" value="red.bmp"/>
+            <Item id="preview_img_FCSub" value="red.bmp"/>
+            <Item id="preview_img_Folding" value=""/>
+            <Item id="preview_img_Staple" value="Port_Staple_UL_277.bmp"/>
+            <Item id="preview_img_HolePunch" value="Port_Punch_2holes_Left.bmp"/>
+            <Item id="preview_img_BC" value="red.bmp"/>
+            <Item id="preview_img_HSP" value="red.bmp"/>
+        </Item>
+    </Item>
+</FWPersistentSettings>
