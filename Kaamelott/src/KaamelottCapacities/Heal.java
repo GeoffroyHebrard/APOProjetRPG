@@ -17,11 +17,8 @@ public class Heal implements Capacity {
         this.target = target;
     }
     
-    public void Healing(){
-        target.setHealth(target.getHealth()+healthPoint);
-    }
     
-    public void healing()
+    public void Healing()
     {
         effect = new Effect(0,healthPoint,0);
     }
