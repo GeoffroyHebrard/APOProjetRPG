@@ -18,7 +18,7 @@ public abstract class Character {
 
     protected String name;
     protected String className;
-    protected int level;
+    protected int level;yyy
     protected int maxWeight;
     protected Map<Characteristic, Integer> characteristic;
 
