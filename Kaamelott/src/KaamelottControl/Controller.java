@@ -1,4 +1,6 @@
 package KaamelottControl;
 
-public class Controller {
+
+public abstract class Controller {
+   
 }
