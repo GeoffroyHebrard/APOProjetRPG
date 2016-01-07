@@ -52,12 +52,8 @@ public abstract class Character {
         return maxWeight;
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
+    public void setCharac(int value,Characteristic charac){
+        this.characteristic.put(charac, 0);
+    }
+      
 }

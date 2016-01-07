@@ -1,5 +1,7 @@
 package KaamelottCapacities;
 import KaamelottItemization.Effect;
+import KaamelottCharacter.Characteristic;
+import KaamelottCharacter.Character;
 
 public class Heal implements Capacity {
 
@@ -20,6 +22,6 @@ public class Heal implements Capacity {
     
     public void Healing()
     {
-        effect = new Effect(0,healthPoint,0);
+        effect = new Effect(target,healthPoint,Characteristic.HEALTH);
     }
 }

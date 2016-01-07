@@ -1,5 +1,10 @@
 package KaamelottCapacities;
 import KaamelottItemization.Effect;
+import KaamelottCharacter.Character;
+import KaamelottCharacter.Characteristic;
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class Attack implements Capacity {
     
@@ -27,14 +32,20 @@ public class Attack implements Capacity {
     }
     public void attackEnnemy()
     {
-        dmg=source.attaque
+        Map<Characteristic, Integer> characteristic = target.getCharacteristic(); 
+    
+        dmg=target.getCharacteristic().get(Characteristic.STRENGTH);
+        int dextTar=target.getCharacteristic().get(Characteristic.DEXTERITY);
+        int dextSrc=source.getCharacteristic().get(Characteristic.DEXTERITY);
+        int defTar=target.getCharacteristic().get(Characteristic.DEFENSE);
+        
         int randomNum =(int)(Math.random()*100); 
-        int dodge =target.characteristic[1]-source.characteristic[1];
+        int dodge =dextTar-dextSrc;
         if (dodge>=randomNum)
             {dmg=0;}
-        dmg=dmg*(100-target.defense)/100;
+        dmg=dmg*(100-defTar)/100;
         
-        effect = new Effect(0,-dmg,0);
+        effect = new Effect(target,-dmg,Characteristic.HEALTH);
     }
     
 }
