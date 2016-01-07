@@ -40,15 +40,19 @@ public class Team {
         return teamNumber;
     }
     
+    public boolean isTeamAlive()
+    {
+        for(int i=0 ; i<(characters.size()) ;i++)
+        {
+            if(!(characters.get(i).isAlive()))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
+   
 }

@@ -55,5 +55,18 @@ public abstract class Character {
     public void setCharac(int value,Characteristic charac){
         this.characteristic.put(charac, 0);
     }
-      
+
+    public boolean isAlive() {
+        if (0 >= this.characteristic.get(Characteristic.HEALTH)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+    
+    
+    
+    
+    
 }
