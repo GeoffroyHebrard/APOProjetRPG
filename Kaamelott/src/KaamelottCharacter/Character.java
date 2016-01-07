@@ -18,7 +18,7 @@ public abstract class Character {
 
     protected String name;
     protected String className;
-    protected int level;yyy
+    protected int level;
     protected int maxWeight;
     protected Map<Characteristic, Integer> characteristic;
 
@@ -41,7 +41,7 @@ public abstract class Character {
     }
     
     public Map<Characteristic, Integer> getCharacteristic() {
-        return characteristic;
+        return this.characteristic;
     }
 
     public int getLevel() {
