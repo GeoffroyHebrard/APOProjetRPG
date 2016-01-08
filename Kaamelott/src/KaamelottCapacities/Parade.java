@@ -1,16 +1,16 @@
 package KaamelottCapacities;
 
-public class Parade implements Capacity {
+public class Parade extends Capacity {
 
     private Attack dmg;
     private Character target;
-    
-    @Override
-    public void use() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    public Parade(Attack dmg, Character target, String name) {
+        super(name);
+        this.dmg = dmg;
+        this.target = target;
     }
     
-    public void paradeEnnemy(){
-        
-    }
+    
+  
 }

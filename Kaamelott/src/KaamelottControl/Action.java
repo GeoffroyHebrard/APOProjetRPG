@@ -5,6 +5,7 @@ import KaamelottItemization.Actionnable;
 
 public class Action {
 
+    private String name;
     private Character target;
     private Character source;
     private Actionnable action;

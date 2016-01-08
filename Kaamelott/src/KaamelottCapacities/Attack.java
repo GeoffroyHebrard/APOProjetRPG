@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class Attack implements Capacity {
+public class Attack extends Capacity {
     
     private int dmg;
     private Character target;
@@ -14,22 +14,16 @@ public class Attack implements Capacity {
     private Effect effect;
     
 
-    public Attack(int dmg) {
-        this.dmg = dmg;
-    }
-
-    public Attack(int dmg, Character target, Character source) {
+    public Attack(int dmg, Character target, Character source, Effect effect, String name) {
+        super(name);
         this.dmg = dmg;
         this.target = target;
         this.source = source;
+        this.effect = effect;
     }
-    
 
-    @Override
-    public void use() {
-        
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
+    
     public void attackEnnemy()
     {
         Map<Characteristic, Integer> characteristic = target.getCharacteristic(); 

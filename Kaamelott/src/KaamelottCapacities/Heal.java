@@ -3,21 +3,21 @@ import KaamelottItemization.Effect;
 import KaamelottCharacter.Characteristic;
 import KaamelottCharacter.Character;
 
-public class Heal implements Capacity {
+public class Heal extends Capacity {
 
     private int healthPoint;
     private Character target;
     private Effect effect;
-    
-    @Override
-    public void use() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-    public Heal(int healthPoint, Character target) {
+    public Heal(int healthPoint, Character target, Effect effect, String name) {
+        super(name);
         this.healthPoint = healthPoint;
         this.target = target;
+        this.effect = effect;
     }
+    
+
+ 
     
     
     public void Healing()

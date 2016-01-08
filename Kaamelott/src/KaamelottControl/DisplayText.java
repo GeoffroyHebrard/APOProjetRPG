@@ -18,7 +18,8 @@ public class DisplayText {
         this.message = message;
     }
     
-    public void display(){
+    public void Display(String mess){
+        message=mess;
         System.out.println(message);
     }
     
@@ -26,11 +27,23 @@ public class DisplayText {
         String str = sc.nextLine();
         return str;
     }
-    public int getEntier(){
+    public int getInteger(){
         String mes = getMessage();
         int messageRet = Integer.parseInt(mes);
         return messageRet;
        
     }
+    public int getNumber(int min,int max,String mess,String messError){
+        
+        Display(mess);
+        int number=getInteger();
+        while(number>max || number<min){
+            Display(messError);
+            Display(mess);
+            number=getInteger();
+        }
+        return number;
+    }
+    
             
 }

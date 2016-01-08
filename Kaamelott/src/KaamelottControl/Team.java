@@ -39,6 +39,9 @@ public class Team {
     public int getTeamNumber() {
         return teamNumber;
     }
+    public Character getCharacI(int num){
+        return this.characters.get(num);
+    }
     
     public boolean isTeamAlive()
     {

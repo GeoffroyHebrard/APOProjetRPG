@@ -1,7 +1,16 @@
 package KaamelottCapacities;
+import KaamelottItemization.Actionnable;
 
-public interface Capacity {
-
+public abstract class Capacity implements Actionnable {
     
-    public void use();
+    private String name;
+
+    public Capacity(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+    
 }

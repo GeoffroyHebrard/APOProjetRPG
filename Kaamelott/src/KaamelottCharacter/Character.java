@@ -1,4 +1,6 @@
 package KaamelottCharacter;
+import KaamelottCapacities.Capacity;
+import KaamelottControl.Action;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,6 +23,7 @@ public abstract class Character {
     protected int level;
     protected int maxWeight;
     protected Map<Characteristic, Integer> characteristic;
+    private List<Capacity> capacities;
 
     public Character(String name, String className) {
         this.name = name;
@@ -33,7 +36,7 @@ public abstract class Character {
         characteristic.put(Characteristic.DEXTERITY, 0);
         characteristic.put(Characteristic.INTELLIGENCE, 0);
         characteristic.put(Characteristic.DEFENSE, 0);
-        
+        capacities = new ArrayList<>();   
         }
     
     public String getName() {
@@ -60,9 +63,24 @@ public abstract class Character {
         if (0 >= this.characteristic.get(Characteristic.HEALTH)) {
             return false;
         }
-        return true;
+        return true; 
+    }
+    public void addCapacity(Capacity cap){
+        capacities.add(cap);
+}
+    public int getNbCapacity(){
+        return capacities.size();
+    }
+    public List<Capacity> getCapacities(){
+        return capacities;
+    }
+    public Capacity getCapacityI(int i){
+        return capacities.get(i);
     }
     
+    public String getNameCapacityI(int i){
+        return capacities.get(i).getName();
+    }
     
     
     
