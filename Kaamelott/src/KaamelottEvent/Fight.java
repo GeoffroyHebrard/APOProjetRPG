@@ -14,7 +14,7 @@ import KaamelottControl.DisplayText;
  *
  * @author p1511544
  */
-public class Fight {
+public class Fight implements Event {
     private Team teamA;
     private Team teamB;
     private DisplayText display;

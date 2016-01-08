@@ -3,21 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package KaamelottEvent;
-
-import java.util.List;
 
 /**
  *
- * @author p1511544
+ * @author nitnek
  */
-public class Scenario {
-    private List<Event> events;
-
-    public Scenario(List<Event> events) {
-        this.events = events;
-    }
-    
+public interface Event {
     
 }
