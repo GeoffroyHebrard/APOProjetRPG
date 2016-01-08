@@ -11,5 +11,5 @@ package KaamelottItemization;
  * @author p1306434
  */
 public interface Actionnable {
-    
+    public Effect getEffect();
 }

@@ -18,7 +18,7 @@ public class DisplayText {
         this.message = message;
     }
     
-    public void Display(String mess){
+    public void display(String mess){
         message=mess;
         System.out.println(message);
     }
@@ -35,11 +35,11 @@ public class DisplayText {
     }
     public int getNumber(int min,int max,String mess,String messError){
         
-        Display(mess);
+        display(mess);
         int number=getInteger();
         while(number>max || number<min){
-            Display(messError);
-            Display(mess);
+            display(messError);
+            display(mess);
             number=getInteger();
         }
         return number;

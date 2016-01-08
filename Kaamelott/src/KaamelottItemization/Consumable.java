@@ -9,6 +9,12 @@ public class Consumable extends Item implements Actionnable{
         this.effect = effect;
     }
 
+    public Effect getEffect() {
+        return effect;
     }
+    
+    
+    
+}
     
 

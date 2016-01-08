@@ -8,14 +8,17 @@ public class Action {
     private String name;
     private Character target;
     private Character source;
-    private Actionnable action;
+    private Actionnable actionnable;
     private int vitesse;
 
-    public Action(Character target, Character source, Actionnable action) {
+    public Action(Character target, Character source, Actionnable actionnable) {
         this.target = target;
         this.source = source;
-        this.action = action;
+        this.actionnable = actionnable;
         this.vitesse=target.getCharacteristic().get(Characteristic.DEXTERITY);
          
     }  
+    
+    
+    
 }

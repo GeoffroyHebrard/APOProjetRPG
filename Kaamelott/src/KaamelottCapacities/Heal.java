@@ -15,13 +15,14 @@ public class Heal extends Capacity {
         this.target = target;
         this.effect = effect;
     }
-    
-
- 
-    
+      
     
     public void Healing()
     {
         effect = new Effect(target,healthPoint,Characteristic.HEALTH);
     }
+
+ 
+    
+    
 }

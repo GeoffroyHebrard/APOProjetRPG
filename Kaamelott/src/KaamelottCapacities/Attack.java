@@ -41,5 +41,8 @@ public class Attack extends Capacity {
         
         effect = new Effect(target,-dmg,Characteristic.HEALTH);
     }
+
+
+  
     
 }

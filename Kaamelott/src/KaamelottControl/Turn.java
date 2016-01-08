@@ -5,13 +5,17 @@ import KaamelottItemization.Actionnable;
 
 
 
+
+
 public class Turn {
-    private Team teamA;
-    private Team teamB;
+    private final Team teamA;
+    private final Team teamB;
     private boolean tour;
     DisplayText display;
-    private Actionnable actionA;
-    private Actionnable actionB;
+    private Actionnable actionnableA;
+    private Actionnable actionnableB;
+    private Action actionA;
+    private Action actionB;
     
 
     public Turn( Team teamA, Team teamB) {
@@ -62,11 +66,18 @@ public class Turn {
    public void PlayTurn(){
        HumanController HC=new HumanController();
        Character characterA=choseCharacter(HC,true);
-       Character characterB=choseCharacter(HC,false);
-       Character characterC=choseCharacter(HC,true);
-       Character characterD=choseCharacter(HC,false);
+       actionnableA=choseAction(characterA);
+       Character targetA=choseCharacter(HC,false);
        
+       Character characterB=choseCharacter(HC,true);
+       actionnableB=choseAction(characterB);
+       Character targetB=choseCharacter(HC,false);
        
+       actionA= new Action(targetA,characterA,actionnableA);
+       actionB= new Action(targetB,characterB,actionnableB);
+       
+       actionnableA.getEffect().applyEffect(targetA);
+       actionnableB.getEffect().applyEffect(targetB);     
    }
    
 }
