@@ -3,13 +3,13 @@ package KaamelottCapacities;
 public class Parade extends Capacity {
 
     private Attack dmg;
-    private Character target;
 
-    public Parade(Attack dmg, Character target, String name) {
-        super(name);
+    public Parade(Attack dmg, String name, KaamelottCharacter.Character target, KaamelottCharacter.Character source) {
+        super(name, target, source);
         this.dmg = dmg;
-        this.target = target;
     }
+
+    
     
     
   

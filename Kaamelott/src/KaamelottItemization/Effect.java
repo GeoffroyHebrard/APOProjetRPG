@@ -10,7 +10,11 @@ public class Effect {
     private int value;
     private Characteristic characteristic;
 
+    public Effect() {
+    }
 
+
+    
     public Effect(Character target, int value,Characteristic characteristic/*, int duration*/) {
         this.value = value;
         /*this.duration = duration;*/

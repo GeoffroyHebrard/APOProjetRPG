@@ -55,6 +55,7 @@ public class Team {
     }
     
     public Character getCharacI(int num){
+        
         return this.characters.get(num);
     }
     

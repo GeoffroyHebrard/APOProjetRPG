@@ -1,10 +1,5 @@
 package KaamelottControl;
 import KaamelottCharacter.Character;
-import KaamelottItemization.Actionnable;
-
-
-
-
 
 
 public class Turn {
@@ -12,8 +7,6 @@ public class Turn {
     private final Team teamB;
     private boolean tour;
     DisplayText display;
-    private Actionnable actionnableA;
-    private Actionnable actionnableB;
     private Action actionA;
     private Action actionB;
     private HumanController HC;
@@ -32,7 +25,10 @@ public class Turn {
        Team team;
        String mess;
        if (source)
+       
            mess="Choisissez votre personnage";
+           
+       
        else
            mess="Choisissez la cible";
        
@@ -43,7 +39,11 @@ public class Turn {
        {
            team=teamB;
        }
-     int numCharac= enterCharac(cont,team.getTeamNumber(),mess);
+           for (int i=0;i<team.getTeamNumber();i++)
+           {
+               mess=mess+i+team.getCharacI(i).getName();
+           }
+     int numCharac= enterCharac(cont,team.getTeamNumber()-1,mess);
      return team.getCharacI(numCharac);
    } 
    
@@ -52,38 +52,35 @@ public class Turn {
        
      if (Cont instanceof HumanController )
      {
-       return display.getNumber(1,max,mess,"Veuillez choisir un des entiers proposés");}
+       return display.getNumber(0,max,mess,"Veuillez choisir un des entiers proposés");}
      else 
-         return 1;
+         return 400;
    }
    
-   public Actionnable  choseAction(Character character){
+   public Action choseAction(Character character){
        int max=character.getNbCapacity();
         String mess="Choisissez une action";
         
-        for(int i=1; i<=max; i++) 
+        for(int i=0; i<max; i++) 
             {mess=mess+"//"+character.getNameCapacityI(i);}
           
-            String messError="choisissez un nombre en 1 et "+max;
-       int num= display.getNumber(1,max,mess,messError); 
+        max--;
+            String messError="choisissez un nombre en 0 et "+max;
+       int num= display.getNumber(0,max,mess,messError); 
+       
        return character.getCapacityI(num);
    }
    
    public void PlayTurn(){
        HumanController HC=new HumanController();
        Character characterA=choseCharacter(HC,true);
-       actionnableA=choseAction(characterA);
+       actionA=choseAction(characterA);
        Character targetA=choseCharacter(HC,false);
        
-       Character characterB=choseCharacter(HC,true);
-       actionnableB=choseAction(characterB);
-       Character targetB=choseCharacter(HC,false);
-       
-       actionA= new Action(targetA,characterA,actionnableA);
-       actionB= new Action(targetB,characterB,actionnableB);
-       
-       actionnableA.getEffect().applyEffect(targetA);
-       actionnableB.getEffect().applyEffect(targetB);     
+       Character characterB=choseCharacter(HC,false);
+       actionB=choseAction(characterB);
+       actionB.setTarget(choseCharacter(HC,true));
+                
    }
    
 }

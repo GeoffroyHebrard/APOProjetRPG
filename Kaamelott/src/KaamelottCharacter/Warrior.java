@@ -1,5 +1,7 @@
 package KaamelottCharacter;
 
+import KaamelottCapacities.Attack;
+
 public class Warrior extends Character {
     
     public Warrior(String name) {
@@ -9,6 +11,6 @@ public class Warrior extends Character {
         this.characteristic.put(Characteristic.INTELLIGENCE,50);
         this.characteristic.put(Characteristic.HEALTH,200);
         this.characteristic.put(Characteristic.DEFENSE,30);
-        
+        addCapacity(new Attack(this.getDmg(),"Hit",this,this));  
     }
 }

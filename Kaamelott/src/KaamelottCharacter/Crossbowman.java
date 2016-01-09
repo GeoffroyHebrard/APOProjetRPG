@@ -1,5 +1,7 @@
 package KaamelottCharacter;
 
+import KaamelottCapacities.Attack;
+
 public class Crossbowman extends Character {
 
     public Crossbowman(String name) {
@@ -10,6 +12,7 @@ public class Crossbowman extends Character {
         this.characteristic.put(Characteristic.INTELLIGENCE,50);
         this.characteristic.put(Characteristic.HEALTH,200);
         this.characteristic.put(Characteristic.DEFENSE,20);
+        addCapacity(new Attack(this.getDmg(),"Hit",this,this)); 
     }
      
 }

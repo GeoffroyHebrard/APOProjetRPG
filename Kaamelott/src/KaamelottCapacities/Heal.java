@@ -6,20 +6,21 @@ import KaamelottCharacter.Character;
 public class Heal extends Capacity {
 
     private int healthPoint;
-    private Character target;
     private Effect effect;
 
-    public Heal(int healthPoint, Character target, Effect effect, String name) {
-        super(name);
+
+    public Heal(int healthPoint, Effect effect, String name, Character target, Character source) {
+        super(name, target, source);
         this.healthPoint = healthPoint;
-        this.target = target;
         this.effect = effect;
     }
+    
       
     
-    public void Healing()
+    @Override
+    public Effect getEffect()
     {
-        effect = new Effect(target,healthPoint,Characteristic.HEALTH);
+        return effect = new Effect(getTarget(),healthPoint,Characteristic.HEALTH);
     }
 
  

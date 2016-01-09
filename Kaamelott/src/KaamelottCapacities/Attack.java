@@ -8,26 +8,31 @@ import java.util.Map;
 public class Attack extends Capacity {
     
     private int dmg;
-    private Character target;
-    private Character source;
     private Effect effect;
     
 
-    public Attack(int dmg, String name) {
-        super(name);
+ 
+    public Attack(int dmg, String name, Character target, Character source) {
+        super(name, target, source);
         this.dmg = dmg;
+        effect= new Effect();
     }
+    
+    
+    
+    
 
    
     
-    public void attackEnnemy()
+    @Override
+    public Effect getEffect()
     {
-        Map<Characteristic, Integer> characteristic = target.getCharacteristic(); 
+        Map<Characteristic, Integer> characteristic = getTarget().getCharacteristic(); 
     
-        dmg=target.getCharacteristic().get(Characteristic.STRENGTH);
-        int dextTar=target.getCharacteristic().get(Characteristic.DEXTERITY);
-        int dextSrc=source.getCharacteristic().get(Characteristic.DEXTERITY);
-        int defTar=target.getCharacteristic().get(Characteristic.DEFENSE);
+        dmg=getTarget().getCharacteristic().get(Characteristic.STRENGTH);
+        int dextTar=getTarget().getCharacteristic().get(Characteristic.DEXTERITY);
+        int dextSrc=getSource().getCharacteristic().get(Characteristic.DEXTERITY);
+        int defTar=getTarget().getCharacteristic().get(Characteristic.DEFENSE);
         
         int randomNum =(int)(Math.random()*100); 
         int dodge =dextTar-dextSrc;
@@ -35,7 +40,7 @@ public class Attack extends Capacity {
             {dmg=0;}
         dmg=dmg*(100-defTar)/100;
         
-        effect = new Effect(target,-dmg,Characteristic.HEALTH);
+        return effect = new Effect(getTarget(),-dmg,Characteristic.HEALTH);
     }
 
 
