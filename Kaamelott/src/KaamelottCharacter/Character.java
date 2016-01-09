@@ -58,6 +58,16 @@ public abstract class Character {
     public void setCharac(int value,Characteristic charac){
         this.characteristic.put(charac, 0);
     }
+    
+    public int getCharac(Characteristic charac){
+        return this.characteristic.get(charac);
+        
+    }
+    
+    public final int getDmg(){
+        return characteristic.get(Characteristic.STRENGTH);
+          
+    }
 
     public boolean isAlive() {
         if (0 >= this.characteristic.get(Characteristic.HEALTH)) {
@@ -65,7 +75,7 @@ public abstract class Character {
         }
         return true; 
     }
-    public void addCapacity(Capacity cap){
+    public final void addCapacity(Capacity cap){
         capacities.add(cap);
 }
     public int getNbCapacity(){

@@ -8,6 +8,7 @@ package KaamelottControl;
 import java.util.ArrayList;
 import java.util.List;
 import KaamelottCharacter.Character;
+import KaamelottCharacter.*;
 
 
 /**
@@ -19,13 +20,26 @@ public class Team {
     protected int teamNumber;
     
     
-    public Team(int teamNumber) {
-        this.teamNumber = teamNumber;
+    public Team() {
+        teamNumber=0;
         characters = new ArrayList<>();
     }
+
+    public Team(List<Character> characters, int teamNumber) {
+        this.characters = characters;
+        this.teamNumber = teamNumber;
+    }
+    
     
     public void addCharacterTeam(Character character) {
         characters.add(character);
+        teamNumber++;
+    }
+    
+    public void fillTeam(int number){
+        for(int i=0;i<number;i++){
+            this.addCharacterTeam(new Thief("thief"+i)); 
+        }
     }
     
     public List<Character> getCharacters(){
@@ -39,6 +53,7 @@ public class Team {
     public int getTeamNumber() {
         return teamNumber;
     }
+    
     public Character getCharacI(int num){
         return this.characters.get(num);
     }

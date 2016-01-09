@@ -2,7 +2,6 @@ package KaamelottCapacities;
 import KaamelottItemization.Effect;
 import KaamelottCharacter.Character;
 import KaamelottCharacter.Characteristic;
-import java.util.HashMap;
 import java.util.Map;
 
 
@@ -14,12 +13,9 @@ public class Attack extends Capacity {
     private Effect effect;
     
 
-    public Attack(int dmg, Character target, Character source, Effect effect, String name) {
+    public Attack(int dmg, String name) {
         super(name);
         this.dmg = dmg;
-        this.target = target;
-        this.source = source;
-        this.effect = effect;
     }
 
    

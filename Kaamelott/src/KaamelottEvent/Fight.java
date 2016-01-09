@@ -19,9 +19,10 @@ public class Fight implements Event {
     private Team teamB;
     private DisplayText display;
 
-    public Fight(Team teamA, Team teamB) {
+    public Fight(Team teamA, Team teamB,DisplayText display) {
         this.teamA = teamA;
         this.teamB = teamB;
+        this.display=display;
     }
     
     public void doFight(){

@@ -14,6 +14,15 @@ public class DisplayText {
     String message;
     Scanner sc;
 
+    public DisplayText(Scanner sc) {
+        this.sc = sc;
+    }
+
+    public DisplayText() {
+    }
+    
+    
+
     public DisplayText(String message) {
         this.message = message;
     }
@@ -23,12 +32,15 @@ public class DisplayText {
         System.out.println(message);
     }
     
-    public String getMessage(){
+    public String getMessage(String message){
+        display(message);
+        Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         return str;
     }
     public int getInteger(){
-        String mes = getMessage();
+        message="";
+        String mes = getMessage(message);
         int messageRet = Integer.parseInt(mes);
         return messageRet;
        
@@ -43,6 +55,23 @@ public class DisplayText {
             number=getInteger();
         }
         return number;
+    }
+    
+    public void displayError(int nbError){
+        switch (nbError) {
+            case 1:  display("non existent type");
+                     break;
+            /*case 2:  charac = new Crossbowman(name);
+                     break;
+            case 3:  charac = new Crossbowman(name);
+                     break;
+            case 4:  charac = new Crossbowman(name);
+                     break;
+            case 5:  charac = new Crossbowman(name);
+                     break;*/
+            default: display("Unknown error");
+                     break;
+    }
     }
     
     

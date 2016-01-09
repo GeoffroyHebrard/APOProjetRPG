@@ -16,11 +16,16 @@ public class Turn {
     private Actionnable actionnableB;
     private Action actionA;
     private Action actionB;
+    private HumanController HC;
+    private HumanController C;
     
 
     public Turn( Team teamA, Team teamB) {
         this.teamA = teamA;
         this.teamB = teamB;
+        HC=new HumanController();
+        display=new DisplayText();
+        tour=false;
     }
     
    public Character choseCharacter(Controller cont,boolean source){
@@ -45,8 +50,9 @@ public class Turn {
    public int enterCharac(Controller Cont,int max,String mess){
 
        
-     if ( ! (Cont instanceof HumanController) )
-       return display.getNumber(1,max,mess,"Veuillez choisir un des entiers proposés");
+     if (Cont instanceof HumanController )
+     {
+       return display.getNumber(1,max,mess,"Veuillez choisir un des entiers proposés");}
      else 
          return 1;
    }
