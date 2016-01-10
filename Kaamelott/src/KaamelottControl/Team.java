@@ -54,7 +54,7 @@ public class Team {
         return teamNumber;
     }
     
-    public Character getCharacI(int num){
+    public Character getCharacterI(int num){
         
         return this.characters.get(num);
     }
@@ -63,12 +63,12 @@ public class Team {
     {
         for(int i=0 ; i<(characters.size()) ;i++)
         {
-            if(!(characters.get(i).isAlive()))
+            if(characters.get(i).isAlive())
             {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
     
     

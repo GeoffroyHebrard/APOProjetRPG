@@ -2,14 +2,19 @@ package KaamelottItemization;
 
 import KaamelottCharacter.Character;
 
-public class Armor extends Item{
+public class Armor implements Item{
 
     private int defense;
+    private String name;
+    private int weigth;
 
-    public Armor(int defense, char name, int weight, Character target, Character source) {
-        super(name, weight, target, source);
+    public Armor(int defense, String name, int weigth) {
         this.defense = defense;
+        this.name = name;
+        this.weigth = weigth;
     }
+
+    
 
     
     

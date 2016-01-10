@@ -1,6 +1,7 @@
 package KaamelottControl;
 import KaamelottCharacter.Character;
 import KaamelottCharacter.Characteristic;
+import KaamelottItemization.Effect;
 
 public abstract class Action {
 
@@ -9,12 +10,19 @@ public abstract class Action {
     private Character source;
     private int vitesse;
 
-    public Action(Character target, Character source) {
+    public Action(String name,Character target, Character source) {
         this.target = target;
         this.source = source;
         this.vitesse=target.getCharacteristic().get(Characteristic.DEXTERITY);
+        this.name=name;
          
     }  
+
+    public Action(String name) {
+        this.name = name;
+        this.vitesse=0;
+    }
+    
     
     public Character getTarget(){
         return target;
@@ -29,5 +37,17 @@ public abstract class Action {
     {
         this.target=target;
     }
+    public abstract Effect getEffect();
+
+    public String getName() {
+        return name;
+    }
+
+    public void setSource(Character source) {
+        this.source = source;
+    }
+    
+    
+    
     
 }

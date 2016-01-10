@@ -10,5 +10,6 @@ package KaamelottEvent;
  * @author nitnek
  */
 public interface Event {
-    
+    public int getType();
+        
 }

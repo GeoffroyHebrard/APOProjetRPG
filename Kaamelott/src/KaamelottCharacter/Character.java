@@ -1,6 +1,8 @@
 package KaamelottCharacter;
 import KaamelottCapacities.Capacity;
 import KaamelottControl.Action;
+import KaamelottItemization.Consumable;
+import KaamelottItemization.Effect;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,10 +10,10 @@ import java.util.Map;
 
 public abstract class Character {
     
-    public final int MAXSTRENGTH = 999;
+    public final int MAXSTRENGTH = 200;
     public final int MAXDEXTERITY = 100;
     public final int MAXINTELLIGENCE = 100;
-    public final int MAXHEALTH = 100;
+    public final int MAXHEALTH = 1000;
     public final int MAXDEFENSE = 100;
     
     public final int MAXARMOREQUIPMENT = 2;
@@ -24,6 +26,8 @@ public abstract class Character {
     protected int maxWeight;
     protected Map<Characteristic, Integer> characteristic;
     private List<Capacity> capacities;
+    private List<Consumable> consumables;
+    private int experience;
 
     public Character(String name, String className) {
         this.name = name;
@@ -36,7 +40,8 @@ public abstract class Character {
         characteristic.put(Characteristic.DEXTERITY, 0);
         characteristic.put(Characteristic.INTELLIGENCE, 0);
         characteristic.put(Characteristic.DEFENSE, 0);
-        capacities = new ArrayList<>();   
+        capacities = new ArrayList<>();  
+        consumables= new ArrayList<>();       
         }
     
     public String getName() {
@@ -56,7 +61,7 @@ public abstract class Character {
     }
     
     public void setCharac(int value,Characteristic charac){
-        this.characteristic.put(charac, 0);
+        this.characteristic.put(charac.HEALTH,this.getHp()+value);
     }
     
     public int getCharac(Characteristic charac){
@@ -92,8 +97,23 @@ public abstract class Character {
         return capacities.get(i).getName();
     }
     
+    public int getHp(){
+        return characteristic.get(Characteristic.HEALTH);
+    }
+
+    public List<Consumable> getConsumables() {
+        return consumables;
+    }
     
-    
+    public void addPotions(){
+        Effect effect = new Effect(this,200, Characteristic.HEALTH);
+        Consumable potion = new Consumable(effect,5,"potion",this,this);
+        consumables.add(potion);
+    }
+    public Consumable getConsumableI(int i)
+    {
+        return consumables.get(i);
+    }
     
     
     

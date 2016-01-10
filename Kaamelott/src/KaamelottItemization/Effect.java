@@ -14,8 +14,7 @@ public class Effect {
     }
 
 
-    
-    public Effect(Character target, int value,Characteristic characteristic/*, int duration*/) {
+    public Effect(Character target,int value,Characteristic characteristic) {
         this.value = value;
         /*this.duration = duration;*/
     }

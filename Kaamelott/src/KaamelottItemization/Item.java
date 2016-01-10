@@ -1,35 +1,14 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package KaamelottItemization;
 
-import KaamelottCharacter.Character;
-import KaamelottControl.Action;
-import java.util.ArrayList;
-
-public class Item extends Action{
-
-    private final char name;
-    
-    private final int weight;
-    
-    ArrayList<Effect> listEffects = new ArrayList();
-
-    public Item(char name, int weight, Character target, Character source) {
-        super(target, source);
-        this.name = name;
-        this.weight = weight;
-    }
-
-     
-    public void addEffect(Effect eff){
-        listEffects.add(eff);  
-    }
-    
-
-    public char getName() {
-        return name;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
+/**
+ *
+ * @author Kalo
+ */
+public interface Item {
     
 }

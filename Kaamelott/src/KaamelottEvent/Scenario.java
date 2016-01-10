@@ -6,11 +6,11 @@
 
 package KaamelottEvent;
 
+import KaamelottCapacities.*;
 import KaamelottControl.DisplayText;
 import java.util.List;
 import KaamelottControl.*;
 import java.util.ArrayList;
-import javax.xml.stream.events.Characters;
 
 
 /**
@@ -21,9 +21,12 @@ public class Scenario {
     private List<Event> events;
     private DisplayText display;
     private List<Team> teams;
+    private List<Capacity> capacities;
 
     public Scenario(DisplayText display) {
         this.display = display;
+        teams=new ArrayList(); 
+        events=new ArrayList(); 
     }
 
     
@@ -48,24 +51,31 @@ public class Scenario {
     public void addTeam(){
         List<KaamelottCharacter.Character> members=new ArrayList();     
         Team teamA=new Team(members,0);
-        teams.add(teamA);;
+        teams.add(teamA);
     }
     
     public void makeScenario()
     {
-        teams=new ArrayList(); 
-        addTeam();
+        createTeams();
+        
+        addEvent(makeCreateCharacter());
+        Capacity capacity = new Spell(40,"Fireball");
+        addEvent(makeCapacity(capacity,0));
+        addEvent(makeFight(teams.get(0),teams.get(1)));
+             
+    }
+    
+    
+    public void createTeams(){
+        addTeam();      
         addTeam();
         teams.get(1).fillTeam(3);
-        addEvent(makeCreateCharacter());
-        addEvent(makeFight(teams.get(0),teams.get(1)));
-        
-        
     }
-   
+    
     
     public Fight makeFight(Team teamA,Team teamB )
-    {
+    {        
+
         Fight fight=new Fight(teamA,teamB,display);
         return fight;
     }
@@ -82,22 +92,32 @@ public class Scenario {
         Narrative tell= new Narrative(narration,display);   
         return tell;
     }
+    public AddCapacity makeCapacity(Capacity capacity,int nbCharac)
+    {
+        
+        AddCapacity addCapacity= new AddCapacity(nbCharac,capacity);   
+        return addCapacity;
+    }
     
      public void readScenario()
     {
         for(int i=0;i<events.size();i++)
         {
-            if(events.get(i) instanceof CreateCharacter)
-                ((CreateCharacter)events.get(i)).addCharac(teams.get(0));
-            else if(events.get(i) instanceof Fight)
-            {
-                 ((Fight)events.get(i)).doFight();
-            }
-            else{
-                if(events.get(i) instanceof Narrative)
-                    ((Narrative)events.get(i)).Tell();
-            }
-                        
+
+            switch (events.get(i).getType()) {
+            case 0:  ((AddCapacity)events.get(i)).doAddCapacity(teams.get(0));
+                     break;
+            case 1:  ((CreateCharacter)events.get(i)).addCharac(teams.get(0));
+                     break;
+            case 2:  ((Fight)events.get(i)).doFight();
+                     break;
+            case 3:  ((Narrative)events.get(i)).Tell();
+                     break;
+            
+            default: {
+                     break;}
+            
+            }      
         }        
     }
     

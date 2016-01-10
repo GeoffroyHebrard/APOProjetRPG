@@ -1,34 +1,31 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package KaamelottCapacities;
-import KaamelottItemization.Effect;
-import KaamelottCharacter.Character;
+
 import KaamelottCharacter.Characteristic;
+import KaamelottItemization.Effect;
 import java.util.Map;
 
-
-public class Attack extends Capacity {
-    
-    private int dmg;
+/**
+ *
+ * @author Kalo
+ */
+public class Spell extends Capacity{
     private Effect effect;
+    private int power;
     
-
- 
-    public Attack(int dmg, String name, Character target, Character source) {
+    public Spell(String name, KaamelottCharacter.Character target, KaamelottCharacter.Character source) {
         super(name, target, source);
-        this.dmg = dmg;
         effect= new Effect();
     }
 
-    public Attack(int dmg, Effect effect, String name) {
+    public Spell(int power, String name) {
         super(name);
-        this.dmg = dmg;
-        this.effect = effect;
+        this.power = power;
     }
-
-    public Attack(String name) {
-        super(name);
-    }
-    
-    
     
     
     @Override
@@ -36,7 +33,7 @@ public class Attack extends Capacity {
     {
         Map<Characteristic, Integer> characteristic = getTarget().getCharacteristic(); 
     
-        dmg=getTarget().getCharacteristic().get(Characteristic.STRENGTH);
+        power=100*getSource().getCharacteristic().get(Characteristic.INTELLIGENCE);
         int dextTar=getTarget().getCharacteristic().get(Characteristic.DEXTERITY);
         int dextSrc=getSource().getCharacteristic().get(Characteristic.DEXTERITY);
         int defTar=getTarget().getCharacteristic().get(Characteristic.DEFENSE);
@@ -44,13 +41,12 @@ public class Attack extends Capacity {
         int randomNum =(int)(Math.random()*100); 
         int dodge =dextTar-dextSrc;
         if (dodge>=randomNum)
-            {dmg=0;}
-        dmg=dmg*(100-defTar)/100;
+            {power=0;}
+        power=power*(100-defTar)/100;
         
-        return effect = new Effect(getTarget(),-dmg,Characteristic.HEALTH);
+        return effect = new Effect(getTarget(),-power,Characteristic.HEALTH);
     }
 
-
-  
+    
     
 }

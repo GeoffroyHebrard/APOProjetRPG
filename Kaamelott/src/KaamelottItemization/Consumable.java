@@ -1,18 +1,31 @@
 package KaamelottItemization;
 
 import KaamelottCharacter.Character;
+import KaamelottControl.Action;
 
 
-public class Consumable extends Item {
+public class Consumable extends Action implements Item {
     private Effect effect;
+    private int nb;
+ 
 
-    public Consumable(Effect effect, char name, int weight, Character target, Character source) {
-        super(name, weight, target, source);
+    public Consumable(int nb,Effect effect, String name) {
+        super(name);
         this.effect = effect;
+        this.nb = nb;
+    }
+
+    public Consumable(Effect effect, int nb, String name, Character target, Character source) {
+        super(name, target, source);
+        this.effect = effect;
+        this.nb = nb;
     }
 
     
 
+
+ 
+    
     public Effect getEffect() {
         return effect;
     }

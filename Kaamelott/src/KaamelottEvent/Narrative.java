@@ -15,10 +15,15 @@ import java.util.List;
 public class Narrative implements Event{
     private List<String> narration;
     private DisplayText display;
+    private final int type=3; 
 
     public Narrative(List<String> narration, DisplayText display) {
         this.narration = narration;
         this.display = display;
+    }
+
+    public int getType() {
+        return type;
     }
 
    

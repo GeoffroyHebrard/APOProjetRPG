@@ -17,12 +17,11 @@ import java.util.List;
 public class Kaamelott {
     public static void main(String [] args)
 	{
-        List<Event> events=new ArrayList<Event>();
-        List<Team> teams=new ArrayList<Team>();
+        
         
         
             DisplayText display=new DisplayText();
-		Scenario scenario=new Scenario(events,display,teams);
+		Scenario scenario=new Scenario(display);
                 scenario.makeScenario();
                 scenario.readScenario();
                 

@@ -1,11 +1,13 @@
 package KaamelottControl;
 import KaamelottCharacter.Character;
+import KaamelottItemization.Consumable;
+import KaamelottCapacities.*;
+import java.util.List;
 
 
 public class Turn {
     private final Team teamA;
     private final Team teamB;
-    private boolean tour;
     DisplayText display;
     private Action actionA;
     private Action actionB;
@@ -18,21 +20,18 @@ public class Turn {
         this.teamB = teamB;
         HC=new HumanController();
         display=new DisplayText();
-        tour=false;
     }
     
-   public Character choseCharacter(Controller cont,boolean source){
+   public Character choseCharacter(Controller cont,int tour){
        Team team;
        String mess;
-       if (source)
-       
-           mess="Choisissez votre personnage";
-           
-       
+       String message;
+       if (tour%2==0)      
+           mess="Chose your character \n";
        else
-           mess="Choisissez la cible";
+           mess="Chose your target \n";
        
-       if (tour^source){ //ou exclusif
+       if (tour%3==0){ 
            team=teamA;
        } 
        else
@@ -41,10 +40,15 @@ public class Turn {
        }
            for (int i=0;i<team.getTeamNumber();i++)
            {
-               mess=mess+i+team.getCharacI(i).getName();
+               if(team.getCharacterI(i).isAlive())
+                   message=team.getCharacterI(i).getHp()+"HP\n";
+                else
+                   message="dead \n";
+               if (team.getCharacterI(i).isAlive())
+                    mess=mess+i+"-"+team.getCharacterI(i).getName()+" "+message;
            }
      int numCharac= enterCharac(cont,team.getTeamNumber()-1,mess);
-     return team.getCharacI(numCharac);
+     return team.getCharacterI(numCharac);
    } 
    
    public int enterCharac(Controller Cont,int max,String mess){
@@ -52,34 +56,74 @@ public class Turn {
        
      if (Cont instanceof HumanController )
      {
-       return display.getNumber(0,max,mess,"Veuillez choisir un des entiers proposés");}
+       return display.getNumber(0,max,mess,"Please chose one of the integers");}
      else 
          return 400;
    }
    
    public Action choseAction(Character character){
+        String mess="Chose what to do: \n"+"0-Attack \n"+"1-Use object \n";
+
+            String messError="chose a number between 0 and 1";
+       int num= display.getNumber(0,1,mess,messError); 
+       if (num==0)
+           return choseAttack(character);
+       else
+           return choseConsumable(character);
+   }
+   
+   public Action choseConsumable(Character character){
+       List<Consumable> listConsumables= character.getConsumables();
+        String mess="Chose an object to use \n";
+        int max=listConsumables.size();
+        for(int i=0; i<max; i++) 
+            {mess=mess+i+"-"+listConsumables.get(i).getName();}
+            mess=mess+"\n"+max+" -Return";
+            String messError="chose a number between 0 and "+max;
+       int num= display.getNumber(0,max,mess,messError); 
+       if(num==max)
+           return choseAction(character);
+       
+       return character.getConsumableI(num);
+   }
+   
+   public Action choseAttack(Character character){
        int max=character.getNbCapacity();
-        String mess="Choisissez une action";
+        String mess="Chose an action \n";
         
         for(int i=0; i<max; i++) 
-            {mess=mess+"//"+character.getNameCapacityI(i);}
-          
-        max--;
-            String messError="choisissez un nombre en 0 et "+max;
+            {mess=mess+i+"-"+character.getNameCapacityI(i)+"\n";}
+        mess=mess+max+"-Return";
+        
+            String messError="chose a number between 0 and "+max;
        int num= display.getNumber(0,max,mess,messError); 
-       
+       if(num==max)
+            return choseAction(character);
+            
        return character.getCapacityI(num);
    }
    
    public void PlayTurn(){
        HumanController HC=new HumanController();
-       Character characterA=choseCharacter(HC,true);
+       boolean changeTarget=true;
+       Character characterA=choseCharacter(HC,0);
        actionA=choseAction(characterA);
-       Character targetA=choseCharacter(HC,false);
+       actionA.setSource(characterA);
+       if (actionA instanceof Heal)
+           changeTarget=false;
+       if (actionA instanceof Consumable)
+           if (((Consumable)actionA).getEffect().getValue()>0)
+                changeTarget=false;
+            
+       if(changeTarget)
+            actionA.setTarget(choseCharacter(HC,1));
+       actionA.getEffect().applyEffect(actionA.getTarget());
        
-       Character characterB=choseCharacter(HC,false);
+       Character characterB=choseCharacter(HC,2);
        actionB=choseAction(characterB);
-       actionB.setTarget(choseCharacter(HC,true));
+       actionB.setSource(characterB);
+       actionB.setTarget(choseCharacter(HC,3));
+       actionB.getEffect().applyEffect(actionB.getTarget());
                 
    }
    

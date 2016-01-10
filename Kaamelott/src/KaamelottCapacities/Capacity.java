@@ -5,23 +5,18 @@ import KaamelottItemization.Effect;
 
 public abstract class Capacity extends Action {
     
-    private String name;
     private Effect effect;
 
     public Capacity(String name, Character target, Character source) {
-        super(target, source);
-        this.name = name;
+        super(name,target, source);
         effect=new Effect();
     }
 
-    
-
-    public String getName() {
-        return name;
+    public Capacity(String name) {
+        super(name);
     }
 
-     public Effect getEffect() {
-        return effect;
-    }
+     public abstract Effect getEffect();
+ 
     
 }

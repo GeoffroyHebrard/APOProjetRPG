@@ -17,28 +17,33 @@ public class CreateCharacter implements Event{
     
 
     private DisplayText display;   
-
+    private final int type=1;
     public CreateCharacter(DisplayText display) {
         this.display = display;
     }
+
+    public int getType() {
+        return type;
+    }
+    
     
     
     public String askName(){
-        String message="Choisissez le nom de votre Héro";
+        String message="Chose the name of your hero";
         return display.getMessage(message);
     }
     public int askType(){
         
         int min=1;
         int max=5;
-        String mess="Choississez une classe";
+        String mess="Chose a class"+"\n";
         
         //bloc d'ajout des classes
-            mess=mess+"//"+" 1.Crossbowman";
-            mess=mess+"//"+" 2.Druid";
-            mess=mess+"//"+" 3.Knight";
-            mess=mess+"//"+" 4.Thief";
-            mess=mess+"//"+" 5.Warrior";
+            mess=mess+" 1.Crossbowman"+"\n";
+            mess=mess+" 2.Druid"+"\n";
+            mess=mess+" 3.Knight"+"\n";
+            mess=mess+" 4.Thief"+"\n";
+            mess=mess+" 5.Warrior"+"\n";
         String messError="Choisissez un nombre entre "+min +" et "+max;
         
         return display.getNumber(min,max,mess,messError);
@@ -46,9 +51,9 @@ public class CreateCharacter implements Event{
     
     public void addCharac(Team team){
         KaamelottCharacter.Character charac;
-        int choix=askType();
+        int choice=askType();
         String name=askName();
-        switch (choix) {
+        switch (choice) {
             case 1:  charac = new Crossbowman(name);
                      break;
             case 2:  charac = new Druid(name);
@@ -62,9 +67,10 @@ public class CreateCharacter implements Event{
             default: {display.displayError(1);
                     charac=new Crossbowman(name);
                      break;}
+        }
     
     
-                        }
+        charac.addPotions();                
         team.addCharacterTeam(charac)  ;
     }
     
