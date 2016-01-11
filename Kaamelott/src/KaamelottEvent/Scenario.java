@@ -57,14 +57,18 @@ public class Scenario {
     public void makeScenario()
     {
         createTeams();
-        
         addEvent(makeCreateCharacter());
-        Capacity capacity = new Spell(40,"Fireball");
-        addEvent(makeCapacity(capacity,0));
+        addSpells();
+        
         addEvent(makeFight(teams.get(0),teams.get(1)));
              
     }
     
+    public void addSpells(){
+        
+        Capacity capacity = new Spell(40,"Fireball");
+        addEvent(makeCapacity(capacity,0));
+    }
     
     public void createTeams(){
         addTeam();      

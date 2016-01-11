@@ -22,6 +22,7 @@ public abstract class Character {
 
     protected String name;
     protected String className;
+    protected int hp;  
     protected int level;
     protected int maxWeight;
     protected Map<Characteristic, Integer> characteristic;
@@ -32,10 +33,11 @@ public abstract class Character {
     public Character(String name, String className) {
         this.name = name;
         this.className = className;
-        this.level =1;
-        this.maxWeight = 500;
-        this.characteristic = new HashMap<>();
-        this.characteristic.put(Characteristic.HEALTH, 150 + 2 * level + 3);
+        level =1;
+        maxWeight = 500;
+        experience=0;
+        characteristic = new HashMap<>();
+        characteristic.put(Characteristic.HEALTH, 150);
         characteristic.put(Characteristic.STRENGTH, 0);
         characteristic.put(Characteristic.DEXTERITY, 0);
         characteristic.put(Characteristic.INTELLIGENCE, 0);
@@ -60,8 +62,12 @@ public abstract class Character {
         return maxWeight;
     }
     
-    public void setCharac(int value,Characteristic charac){
-        this.characteristic.put(charac.HEALTH,this.getHp()+value);
+    public void setCharac(int value,Characteristic charac){ 
+        int test=this.getCharac(charac)+value;
+        if (charac==Characteristic.HEALTH){
+                if(test>=hp) test=hp;
+                }
+        this.characteristic.put(charac,test);
     }
     
     public int getCharac(Characteristic charac){
@@ -114,6 +120,29 @@ public abstract class Character {
     {
         return consumables.get(i);
     }
+    
+    public boolean levelUp(){
+        int limit=this.level*100;
+        if (this.experience>=limit){
+            this.level=this.level+1;
+            this.experience=this.experience-limit;
+            this.hp=hp+100*this.level;
+            setCharac(2,Characteristic.DEFENSE);
+            setCharac(2,Characteristic.DEXTERITY);
+            setCharac(2,Characteristic.STRENGTH);
+            setCharac(2,Characteristic.INTELLIGENCE);
+            return true;
+            
+        }
+        return false;
+    }
+    
+    public boolean earnXp(int xp){
+        this.experience=this.experience+xp;
+        this.levelUp();
+        return levelUp();
+    }
+    
     
     
     

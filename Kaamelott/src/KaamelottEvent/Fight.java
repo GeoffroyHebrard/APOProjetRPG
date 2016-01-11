@@ -47,7 +47,17 @@ public class Fight implements Event {
         if(teamA.isTeamAlive())
             display.display("you overcame your ennemy, Well done !");
         else
-            display.display("you have been defeated");         
+            display.display("you have been defeated");
+        
+        int xp=12;
+        
+        for (int i=0;i<teamA.getTeamNumber();i++)
+        {
+         teamA.getCharacterI(i).earnXp(xp);
+         if (teamA.getCharacterI(i).earnXp(xp)){
+             display.display("you earned a level with"+ teamA.getCharacterI(i).getName());
+         }
+        }
     }
     
 }
