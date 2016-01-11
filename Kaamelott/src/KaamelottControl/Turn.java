@@ -106,25 +106,31 @@ public class Turn {
    public void PlayTurn(){
        HumanController HC=new HumanController();
        boolean changeTarget=true;
-       Character characterA=choseCharacter(HC,0);
+       Character characterA=choseCharacter(HC,0); // Chose source in team A 
        actionA=choseAction(characterA);
        actionA.setSource(characterA);
        if (actionA instanceof Heal)
-           changeTarget=false;
+            actionB.setTarget(choseCharacter(HC,3)); // Chose target in team A
        if (actionA instanceof Consumable)
            if (((Consumable)actionA).getEffect().getValue()>0)
                 changeTarget=false;
             
        if(changeTarget)
-            actionA.setTarget(choseCharacter(HC,1));
+            actionA.setTarget(choseCharacter(HC,1)); // Chose target in team B 
        actionA.getEffect().applyEffect(actionA.getTarget());
        
-       Character characterB=choseCharacter(HC,2);
+       Character characterB=choseCharacter(HC,2);  // Chose source in team B
        actionB=choseAction(characterB);
        actionB.setSource(characterB);
-       actionB.setTarget(choseCharacter(HC,3));
+       actionB.setTarget(choseCharacter(HC,3)); // Chose target in team A
        actionB.getEffect().applyEffect(actionB.getTarget());
                 
    }
+   
+   
+   
+   
+   
+   
    
 }
