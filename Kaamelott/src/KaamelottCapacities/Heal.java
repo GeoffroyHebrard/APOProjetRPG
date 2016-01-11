@@ -18,9 +18,13 @@ public class Heal extends Capacity {
       
     
     @Override
-    public Effect getEffect()
+    public Effect doEffect()
     {
         return effect = new Effect(getTarget(),healthPoint,Characteristic.HEALTH);
+    }
+
+    public Effect getEffect() {
+        return effect;
     }
 
  

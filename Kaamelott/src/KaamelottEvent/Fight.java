@@ -6,9 +6,8 @@
 
 package KaamelottEvent;
 
-import KaamelottControl.Team;
-import KaamelottControl.Turn;
-import KaamelottControl.DisplayText;
+import KaamelottControl.*;
+
 
 /**
  *
@@ -19,11 +18,16 @@ public class Fight implements Event {
     private Team teamB;
     private final int type=2;
     private DisplayText display;
+    private Controller contA;
+    private Controller contB;
+    private int xp;
 
-    public Fight(Team teamA, Team teamB,DisplayText display) {
+    public Fight(Team teamA, Team teamB,DisplayText display,int xp) {
         this.teamA = teamA;
         this.teamB = teamB;
         this.display=display;
+        this.contA=new HumanController();
+        this.contB=new AIController();
     }
 
     public int getType() {
@@ -39,7 +43,7 @@ public class Fight implements Event {
          message=message+teamB.getCharacterI(i).getName()+"\n";   
         }
         display.display(message);
-        Turn turn=new Turn(teamA,teamB); 
+        Turn turn=new Turn(teamA,teamB,contA,contB); 
         while (teamA.isTeamAlive()&&teamB.isTeamAlive())
         {
             turn.PlayTurn();
@@ -49,11 +53,8 @@ public class Fight implements Event {
         else
             display.display("you have been defeated");
         
-        int xp=12;
-        
         for (int i=0;i<teamA.getTeamNumber();i++)
         {
-         teamA.getCharacterI(i).earnXp(xp);
          if (teamA.getCharacterI(i).earnXp(xp)){
              display.display("you earned a level with"+ teamA.getCharacterI(i).getName());
          }

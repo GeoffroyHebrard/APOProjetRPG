@@ -58,8 +58,7 @@ public class Scenario {
     {
         createTeams();
         addEvent(makeCreateCharacter());
-        addSpells();
-        
+        addSpells();       
         addEvent(makeFight(teams.get(0),teams.get(1)));
              
     }
@@ -73,14 +72,14 @@ public class Scenario {
     public void createTeams(){
         addTeam();      
         addTeam();
-        teams.get(1).fillTeam(3);
+        teams.get(1).fillTeam(2);
     }
     
     
     public Fight makeFight(Team teamA,Team teamB )
     {        
 
-        Fight fight=new Fight(teamA,teamB,display);
+        Fight fight=new Fight(teamA,teamB,display,150);
         return fight;
     }
     
@@ -121,8 +120,32 @@ public class Scenario {
             default: {
                      break;}
             
-            }      
-        }        
+            } 
+            String message=" 1.Use Potion"+"\n"
+            +" 2. Equip Character"+"\n"
+            +" 3. Continue adventure"+"\n";
+            String messError="Choisissez un nombre entre "+1 +" et "+3;
+        
+        int number=0;
+        if(events.get(i).getType()==2){
+        while (number!=3){
+        number=display.getNumber(1,3,message,messError);
+        switch (number) {
+            case 1:  teams.get(0).takeObject();
+                     break;
+            case 2:  
+                    teams.get(0).equipCharacter();                   
+                     break;
+            case 3:  
+                     break;           
+            
+            default: {
+                     break;}
+            
+                    }     
+                }
+            } 
+        }
     }
     
 }

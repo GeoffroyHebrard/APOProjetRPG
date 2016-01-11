@@ -7,8 +7,11 @@ package KaamelottItemization;
 
 /**
  *
- * @author Kalo
+ * @author nitnek
  */
 public interface Item {
-    
+    public void equipItem(KaamelottCharacter.Character Character);
+    public void dropItem(KaamelottCharacter.Character Character);
+    public String getName();
 }
+

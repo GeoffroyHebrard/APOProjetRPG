@@ -16,6 +16,7 @@ public abstract class Capacity extends Action {
         super(name);
     }
 
+     public abstract Effect doEffect();
      public abstract Effect getEffect();
  
     

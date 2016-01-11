@@ -4,7 +4,7 @@ import KaamelottCharacter.Character;
 import KaamelottControl.Action;
 
 
-public class Consumable extends Action implements Item {
+public class Consumable extends Action{
     private Effect effect;
     private int nb;
  
@@ -21,13 +21,16 @@ public class Consumable extends Action implements Item {
         this.nb = nb;
     }
 
-    
-
-
- 
-    
+   
+    public Effect doEffect() {
+        return effect;
+    }
     public Effect getEffect() {
         return effect;
+    }
+
+    public int getNb() {
+        return nb;
     }
     
     

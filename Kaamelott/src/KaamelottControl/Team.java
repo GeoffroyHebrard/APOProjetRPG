@@ -18,11 +18,13 @@ import KaamelottCharacter.*;
 public class Team {
     private List<Character> characters;
     protected int teamNumber;
+
     
     
     public Team() {
         teamNumber=0;
         characters = new ArrayList<>();
+
     }
 
     public Team(List<Character> characters, int teamNumber) {
@@ -70,8 +72,35 @@ public class Team {
         }
         return false;
     }
-    
-    
-    
-   
+    public void equipCharacter(){
+        DisplayText display=new DisplayText();
+        int max=characters.size();
+        String mess="Which character do you wish to equip ?";
+        for (int i=0;i<max;i++)
+           {
+               mess=mess+"\n"+i+"-"+this.getCharacterI(i).getName()+"\n";
+           }
+        String messError="Please chose a number between 0 and "+max;
+        mess=mess+max+"- Return";
+        int value=display.getNumber(0,max+1,mess,messError);
+        if (value==max)
+            return ;
+        characters.get(value).equip();
+    }
+public void takeObject(){
+        int max=characters.size();
+        String mess="Which character do you wishto use a consumable with ?";
+        for (int i=0;i<max;i++)
+           {
+               mess=mess+"\n"+i+"-"+this.getCharacterI(i).getName()+"\n";
+           }
+        String messError="Please chose a number between 0 and "+max;
+        DisplayText display=new DisplayText();
+        mess=mess+max+"- Return";
+        int value=display.getNumber(0,max+1,mess,messError);
+        if (value==max)
+            return ;
+        characters.get(value).useConsumable();
+    }        
+     
 }

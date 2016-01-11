@@ -29,7 +29,7 @@ public class Spell extends Capacity{
     
     
     @Override
-    public Effect getEffect()
+    public Effect doEffect()
     {
         Map<Characteristic, Integer> characteristic = getTarget().getCharacteristic(); 
     
@@ -45,6 +45,10 @@ public class Spell extends Capacity{
         power=power*(100-defTar)/100;
         
         return effect = new Effect(getTarget(),-power,Characteristic.HEALTH);
+    }
+
+    public Effect getEffect() {
+        return effect;
     }
 
     

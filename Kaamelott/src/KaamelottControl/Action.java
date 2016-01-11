@@ -37,6 +37,7 @@ public abstract class Action {
     {
         this.target=target;
     }
+    public abstract Effect doEffect();
     public abstract Effect getEffect();
 
     public String getName() {

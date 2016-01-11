@@ -1,8 +1,10 @@
 package KaamelottCharacter;
 import KaamelottCapacities.Capacity;
 import KaamelottControl.Action;
+import KaamelottControl.DisplayText;
 import KaamelottItemization.Consumable;
 import KaamelottItemization.Effect;
+import KaamelottItemization.Item;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,6 +31,8 @@ public abstract class Character {
     private List<Capacity> capacities;
     private List<Consumable> consumables;
     private int experience;
+    private List<Item> equipment;
+    DisplayText display;
 
     public Character(String name, String className) {
         this.name = name;
@@ -43,7 +47,9 @@ public abstract class Character {
         characteristic.put(Characteristic.INTELLIGENCE, 0);
         characteristic.put(Characteristic.DEFENSE, 0);
         capacities = new ArrayList<>();  
-        consumables= new ArrayList<>();       
+        consumables= new ArrayList<>();
+        equipment= new ArrayList<>();
+        display=new DisplayText();
         }
     
     public String getName() {
@@ -139,8 +145,45 @@ public abstract class Character {
     
     public boolean earnXp(int xp){
         this.experience=this.experience+xp;
-        this.levelUp();
         return levelUp();
+    }
+    
+    public Item getEquipmentI(int i){
+        return equipment.get(i);
+        
+    }
+    
+    public void addEquipment(Item item){
+        equipment.add(item);
+    }
+
+    public void equip() {
+        int max=equipment.size();
+        String mess="Which equipment do you wish to equip ?";
+        for (int i=0;i<max;i++)
+           {
+               mess=mess+i+"-"+this.getEquipmentI(i).getName()+"\n";
+           }
+        mess=mess+max+"- Return";
+        String messError="Please chose a number between 0 and "+max;
+        int value=display.getNumber(0,max,mess,messError);
+        if (value==max)
+            return ;
+        equipment.get(value).equipItem(this);
+    }
+    public void useConsumable() {
+        int max=consumables.size();
+        String mess="Which consumable do you wish to use ? ";
+        for (int i=0;i<max;i++)
+           {
+               mess=mess+"\n"+i+"-"+this.getConsumableI(i).getName()+"\n";
+           }
+        mess=mess+max+"- Return";
+        String messError="Please chose a number between 0 and "+max;
+        int value=display.getNumber(0,max,mess,messError);
+        if (value==max)
+            return ;
+        consumables.get(value).doEffect();
     }
     
     

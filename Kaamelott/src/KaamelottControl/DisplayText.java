@@ -5,6 +5,7 @@
  */
 
 package KaamelottControl;
+import java.util.List;
 import java.util.Scanner;
 /**
  *
@@ -62,6 +63,27 @@ public class DisplayText {
         }
         return number;
     }
+    
+    public int getListNumber(int min,List<Integer> listNb,String mess,String messError){
+        
+        display(mess);
+        int number=getInteger(min);
+        boolean isin=false;       
+            
+        while(!isin){
+            for(int i=min;i<listNb.size();i++){
+                if (listNb.get(i)==number)
+                    isin=true;
+        }
+            display(messError);
+            display(mess);
+            if (!isin)
+                number=getInteger(min);
+        }
+        return number;
+    }
+    
+    
     
     public void displayError(int nbError){
         switch (nbError) {

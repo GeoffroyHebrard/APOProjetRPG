@@ -32,7 +32,7 @@ public class Attack extends Capacity {
     
     
     @Override
-    public Effect getEffect()
+    public Effect doEffect()
     {
         Map<Characteristic, Integer> characteristic = getTarget().getCharacteristic(); 
     
@@ -48,6 +48,10 @@ public class Attack extends Capacity {
         dmg=dmg*(100-defTar)/100;
         
         return effect = new Effect(getTarget(),-dmg,Characteristic.HEALTH);
+    }
+
+    public Effect getEffect() {
+        return effect;
     }
 
 

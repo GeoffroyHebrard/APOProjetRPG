@@ -12,6 +12,7 @@ public class Thief extends Character {
         this.characteristic.put(Characteristic.INTELLIGENCE,50);
         this.characteristic.put(Characteristic.HEALTH,200);
         this.characteristic.put(Characteristic.DEFENSE,30);
-        addCapacity(new Attack(this.getDmg(),"Hit",this,this));       
+        addCapacity(new Attack(this.getDmg(),"Traitor's blow",this,this));
+        hp=getHp();
     }
 }

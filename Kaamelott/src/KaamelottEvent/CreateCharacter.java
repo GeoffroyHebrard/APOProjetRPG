@@ -39,11 +39,11 @@ public class CreateCharacter implements Event{
         String mess="Chose a class"+"\n";
         
         //bloc d'ajout des classes
-            mess=mess+" 1.Crossbowman"+"\n";
-            mess=mess+" 2.Druid"+"\n";
-            mess=mess+" 3.Knight"+"\n";
-            mess=mess+" 4.Thief"+"\n";
-            mess=mess+" 5.Warrior"+"\n";
+            mess=mess+" 1.Crossbowman"+"\n"
+            +" 2.Druid"+"\n"
+            +" 3.Knight"+"\n"
+            +" 4.Thief"+"\n"
+            +" 5.Warrior"+"\n";
         String messError="Choisissez un nombre entre "+min +" et "+max;
         
         return display.getNumber(min,max,mess,messError);
