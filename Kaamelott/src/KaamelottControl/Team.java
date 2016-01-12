@@ -87,6 +87,7 @@ public class Team {
             return ;
         characters.get(value).equip();
     }
+    
 public void takeObject(){
         int max=characters.size();
         String mess="Which character do you wishto use a consumable with ?";

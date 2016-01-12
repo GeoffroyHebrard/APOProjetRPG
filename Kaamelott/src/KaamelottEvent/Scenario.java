@@ -127,7 +127,7 @@ public class Scenario {
             String messError="Choisissez un nombre entre "+1 +" et "+3;
         
         int number=0;
-        if(events.get(i).getType()==2){
+        if(events.get(i).getType()==2 ||events.get(i).getType()==0){
         while (number!=3){
         number=display.getNumber(1,3,message,messError);
         switch (number) {

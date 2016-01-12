@@ -5,6 +5,7 @@ import KaamelottControl.DisplayText;
 import KaamelottItemization.Consumable;
 import KaamelottItemization.Effect;
 import KaamelottItemization.Item;
+import KaamelottItemization.Weapon;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,10 +18,6 @@ public abstract class Character {
     public final int MAXINTELLIGENCE = 100;
     public final int MAXHEALTH = 1000;
     public final int MAXDEFENSE = 100;
-    
-    public final int MAXARMOREQUIPMENT = 2;
-    public final int MAXWEAPONEQUIPMENT = 1;
-    public final int MAXEQUIPMENT = 3;
 
     protected String name;
     protected String className;
@@ -50,6 +47,7 @@ public abstract class Character {
         consumables= new ArrayList<>();
         equipment= new ArrayList<>();
         display=new DisplayText();
+        getEquipmentBeginning();
         }
     
     public String getName() {
@@ -187,6 +185,11 @@ public abstract class Character {
     }
     
     
-    
+    public void getEquipmentBeginning(){
+
+        Item item=new Weapon(20,"Excalibur",100);
+       this.addEquipment(item);
+
+    }
     
 }
