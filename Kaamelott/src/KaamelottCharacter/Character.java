@@ -187,7 +187,7 @@ public abstract class Character {
     
     public void getEquipmentBeginning(){
 
-        Item item=new Weapon(20,"Excalibur",100);
+        Item item=new Weapon(20,"Excalibur",100,Characteristic.STRENGTH);
        this.addEquipment(item);
 
     }
