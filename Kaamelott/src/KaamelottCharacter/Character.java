@@ -47,7 +47,7 @@ public abstract class Character {
         consumables= new ArrayList<>();
         equipment= new ArrayList<>();
         display=new DisplayText();
-        getEquipmentBeginning();
+        addNewEquipment();
         }
     
     public String getName() {
@@ -157,7 +157,7 @@ public abstract class Character {
 
     public void equip() {
         int max=equipment.size();
-        String mess="Which equipment do you wish to equip ?";
+        String mess="Which equipment do you wish to equip ? \n";
         for (int i=0;i<max;i++)
            {
                mess=mess+i+"-"+this.getEquipmentI(i).getName()+"\n";
@@ -174,7 +174,8 @@ public abstract class Character {
         String mess="Which consumable do you wish to use ? ";
         for (int i=0;i<max;i++)
            {
-               mess=mess+"\n"+i+"-"+this.getConsumableI(i).getName()+"\n";
+               mess=mess+"\n"+i+"-"+this.getConsumableI(i).getName()+" ("+this.getConsumableI(i).getNumber()+")";
+               
            }
         mess=mess+max+"- Return";
         String messError="Please chose a number between 0 and "+max;
@@ -185,7 +186,7 @@ public abstract class Character {
     }
     
     
-    public void getEquipmentBeginning(){
+    public void addNewEquipment(){
 
         Item item=new Weapon(20,"Excalibur",100,Characteristic.STRENGTH);
        this.addEquipment(item);

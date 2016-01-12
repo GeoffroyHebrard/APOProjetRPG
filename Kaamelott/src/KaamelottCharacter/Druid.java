@@ -1,6 +1,8 @@
 package KaamelottCharacter;
 
 import KaamelottCapacities.Attack;
+import KaamelottCapacities.Capacity;
+import KaamelottCapacities.Spell;
 
 public class Druid extends Character {
     
@@ -14,5 +16,7 @@ public class Druid extends Character {
         this.characteristic.put(Characteristic.DEFENSE,20);
         addCapacity(new Attack(this.getDmg(),"Stick hit",this,this));
         hp=getHp();
+        Capacity capacity = new Spell(-40,"Heal");
+        this.getCapacities().add(capacity);
     }
 }

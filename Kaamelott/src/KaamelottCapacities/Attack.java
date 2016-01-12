@@ -28,6 +28,9 @@ public class Attack extends Capacity {
         super(name);
     }
     
+    public int getValue() {
+        return dmg;
+    }
     
     
     

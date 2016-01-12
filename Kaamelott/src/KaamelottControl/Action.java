@@ -39,6 +39,7 @@ public abstract class Action {
     }
     public abstract Effect doEffect();
     public abstract Effect getEffect();
+    public abstract int getValue();
 
     public String getName() {
         return name;

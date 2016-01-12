@@ -23,16 +23,20 @@ public class Consumable extends Action{
 
    
     public Effect doEffect() {
+        nb--;
         return effect;
     }
     public Effect getEffect() {
         return effect;
     }
 
-    public int getNb() {
+    public int getNumber() {
         return nb;
     }
     
+    public int getValue(){
+        return this.getValue();
+    }
     
     
 }

@@ -29,17 +29,6 @@ public class Scenario {
         events=new ArrayList(); 
     }
 
-    
-    public Scenario(List<Event> events) {
-        this.events = events;
-    }
-
-    public Scenario(List<Event> events, DisplayText display, List<Team> teams) {
-        this.events = events;
-        this.display = display;
-        this.teams = teams;
-    }
-
     public Scenario(List<Event> events, DisplayText display) {
         this.events = events;
         this.display = display;
@@ -57,6 +46,8 @@ public class Scenario {
     public void makeScenario()
     {
         createTeams();
+        addEvent(makeCreateCharacter());
+        addEvent(makeCreateCharacter());
         addEvent(makeCreateCharacter());
         addSpells();       
         addEvent(makeFight(teams.get(0),teams.get(1)));

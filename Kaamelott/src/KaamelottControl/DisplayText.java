@@ -75,10 +75,14 @@ public class DisplayText {
                 if (listNb.get(i)==number)
                     isin=true;
         }
-            display(messError);
+            
             display(mess);
             if (!isin)
+            {
+                display(messError);
                 number=getInteger(min);
+            }
+                
         }
         return number;
     }

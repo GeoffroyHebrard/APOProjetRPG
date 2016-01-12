@@ -59,8 +59,7 @@ public class Turn {
                    message=team.getCharacterI(i).getHp()+"HP\n";
                    listNb.add(i);
                }
-                   
-               
+                                 
                 else
                    message="dead \n";
                mess=mess+i+"-"+team.getCharacterI(i).getName()+" "+message;
@@ -96,7 +95,7 @@ public class Turn {
         String mess="Chose an object to use \n";
         int max=listConsumables.size();
         for(int i=0; i<max; i++) 
-            {mess=mess+i+"-"+listConsumables.get(i).getName()+"("+listConsumables.get(i).getNb()+")";}
+            {mess=mess+i+"-"+listConsumables.get(i).getName()+"("+listConsumables.get(i).getNumber()+")";}
             mess=mess+"\n"+max+" -Return";
             String messError="chose a number between 0 and "+max;
        int num= display.getNumber(0,max,mess,messError); 
@@ -128,8 +127,11 @@ public class Turn {
        Character characterA=choseCharacter(contA,0); // Chose source in team A 
        actionA=choseAction(contA,characterA);
        actionA.setSource(characterA);
-       if (actionA instanceof Heal)
-            actionB.setTarget(choseCharacter(contA,3)); // Chose target in team A
+       if (actionA instanceof Spell){
+           if (actionA.getValue()<0)
+               actionA.setTarget(choseCharacter(contA,3)); // Chose target in team A
+       }
+            
        if (actionA instanceof Consumable)
            if (((Consumable)actionA).getEffect().getValue()>0)
                 changeTarget=false;

@@ -32,8 +32,10 @@ public class Spell extends Capacity{
     public Effect doEffect()
     {
         Map<Characteristic, Integer> characteristic = getTarget().getCharacteristic(); 
-    
-        power=100*getSource().getCharacteristic().get(Characteristic.INTELLIGENCE);
+        
+        if(power<0)
+            return effect = new Effect(getTarget(),-power,Characteristic.HEALTH);
+        power=2*getSource().getCharacteristic().get(Characteristic.INTELLIGENCE);
         int dextTar=getTarget().getCharacteristic().get(Characteristic.DEXTERITY);
         int dextSrc=getSource().getCharacteristic().get(Characteristic.DEXTERITY);
         int defTar=getTarget().getCharacteristic().get(Characteristic.DEFENSE);
@@ -50,6 +52,12 @@ public class Spell extends Capacity{
     public Effect getEffect() {
         return effect;
     }
+
+    public int getValue() {
+        return power;
+    }
+    
+    
 
     
     

@@ -78,7 +78,7 @@ public class Team {
         String mess="Which character do you wish to equip ?";
         for (int i=0;i<max;i++)
            {
-               mess=mess+"\n"+i+"-"+this.getCharacterI(i).getName()+"\n";
+               mess=mess+"\n"+i+"-"+this.getCharacterI(i).getName();
            }
         String messError="Please chose a number between 0 and "+max;
         mess=mess+max+"- Return";
@@ -90,10 +90,10 @@ public class Team {
     
 public void takeObject(){
         int max=characters.size();
-        String mess="Which character do you wishto use a consumable with ?";
+        String mess="Which character do you wish to use a consumable with ?"+"\n";
         for (int i=0;i<max;i++)
            {
-               mess=mess+"\n"+i+"-"+this.getCharacterI(i).getName()+"\n";
+               mess=mess+i+"-"+this.getCharacterI(i).getName()+"\n";
            }
         String messError="Please chose a number between 0 and "+max;
         DisplayText display=new DisplayText();
