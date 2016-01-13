@@ -107,7 +107,7 @@ public class Team {
     
     public void showStats(){
         int max=characters.size();
-            String mess="Which character do you wish to use a consumable with ?"+"\n";
+            String mess="Which character do you wish to see stats ?"+"\n";
             for (int i=0;i<max;i++)
                {
                    mess=mess+i+"-"+this.getCharacterI(i).getName()+"-"+this.getCharacterI(i).getHp()+"HP\n";

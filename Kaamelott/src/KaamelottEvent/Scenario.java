@@ -114,14 +114,15 @@ public class Scenario {
             } 
             String message=" 1.Use Potion"+"\n"
             +" 2. Equip Character"+"\n"
-            +" 3. Continue adventure"+"\n"
-            +" 4. View Stats"+"\n";
+            +" 3. View Stats"+"\n"
+            +" 4. Continue adventure"+"\n";
+            
             String messError="Chose a number between "+1 +" and "+4;
         
         int number=0;
         if(events.get(i).getType()==2 ||events.get(i).getType()==0){
-        while (number!=3){
-        number=display.getNumber(1,3,message,messError);
+        while (number!=4){
+        number=display.getNumber(1,4,message,messError);
         switch (number) {
             case 1:  teams.get(0).takeObject();
                      break;
@@ -129,7 +130,7 @@ public class Scenario {
                     teams.get(0).equipCharacter();                   
                      break;
             case 3:  
-                    teams.get(0).showStats());
+                    teams.get(0).showStats();
                      break;
             case 4:
             

@@ -186,11 +186,11 @@ public abstract class Character {
     }
     
     public void stats() {
+        display.display("HEALTH="+this.characteristic.get(Characteristic.HEALTH)+"/"+this.hp);
         display.display("STRENGTH="+this.characteristic.get(Characteristic.STRENGTH));
-        display.display("STRENGTH="+this.characteristic.get(Characteristic.HEALTH));
-        display.display("STRENGTH="+this.characteristic.get(Characteristic.DEFENSE));
-        display.display("STRENGTH="+this.characteristic.get(Characteristic.DEXTERITY));
-        display.display("STRENGTH="+this.characteristic.get(Characteristic.INTELLIGENCE));
+        display.display("DEFENSE="+this.characteristic.get(Characteristic.DEFENSE));
+        display.display("DEXTERITY="+this.characteristic.get(Characteristic.DEXTERITY));
+        display.display("INTELLIGENCE="+this.characteristic.get(Characteristic.INTELLIGENCE));
         
     }
     
