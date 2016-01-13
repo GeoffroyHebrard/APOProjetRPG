@@ -47,7 +47,7 @@ public class Fight implements Event {
         Turn turn=new Turn(teamA,teamB,contA,contB); 
         while (teamA.isTeamAlive()&&teamB.isTeamAlive())
         {
-            turn.PlayTurn();
+            turn.playTurn();
         }
         if(teamA.isTeamAlive())
             display.display("ou overcame your ennemy, Well done !");
@@ -57,7 +57,7 @@ public class Fight implements Event {
         for (int i=0;i<teamA.getTeamNumber();i++)
         {
          if (teamA.getCharacterI(i).earnXp(xp)){
-             display.display("You earned a level with"+ teamA.getCharacterI(i).getName());
+             display.display("You earned a level with"+" "+ teamA.getCharacterI(i).getName());
          }
         }
     }
