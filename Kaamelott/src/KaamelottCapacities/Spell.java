@@ -31,8 +31,6 @@ public class Spell extends Capacity{
     @Override
     public Effect doEffect()
     {
-        Map<Characteristic, Integer> characteristic = getTarget().getCharacteristic(); 
-        
         if(power<0)
             return effect = new Effect(getTarget(),-power,Characteristic.HEALTH);
         power=2*getSource().getCharacteristic().get(Characteristic.INTELLIGENCE);

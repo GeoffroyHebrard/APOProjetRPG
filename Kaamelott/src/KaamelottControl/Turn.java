@@ -10,8 +10,8 @@ public class Turn {
     private final Team teamA;
     private final Team teamB;
     DisplayText display;
-    private Action actionA;
-    private Action actionB;
+    private List<Action> actionA;
+    private List<Action> actionB;
     Controller contA;
     Controller contB;
 
@@ -23,8 +23,15 @@ public class Turn {
         this.contA=contA;
         this.contB=contB;
         display=new DisplayText();
+        actionA= new ArrayList();
+        actionB= new ArrayList();
     }
-    
+   public Action getActionI(List<Action> listAction,int i){
+       return listAction.get(i);
+   }
+   public Character getSourceActionI(List<Action> listAction,int i){
+       return listAction.get(i).getSource();
+   }
    public Character choseCharacter(Controller cont,int tour){
        Team team;
        List<Integer> listNb= new ArrayList();
@@ -123,33 +130,71 @@ public class Turn {
    }
    
    public void PlayTurn(){
-       boolean changeTarget=true;
-       Character characterA=choseCharacter(contA,0); // Chose source in team A 
-       actionA=choseAction(contA,characterA);
-       actionA.setSource(characterA);
-       if (actionA instanceof Spell){
-           if (actionA.getValue()<0)
-               actionA.setTarget(choseCharacter(contA,3)); // Chose target in team A
+       teamA.showHp();
+       teamB.showHp();
+       
+       boolean changeTarget;
+       for(int i=0;i<teamA.getTeamNumber();i++){
+           changeTarget=true;
+           if(teamA.getCharacterI(i).isAlive()){ 
+           if(contA instanceof HumanController)
+                   display.display("\n"+teamA.getCharacterI(i).getName()+" "+"must");
+           actionA.add(choseAction(contA,teamA.getCharacterI(i)));
+           getActionI(actionA,i).setSource(teamA.getCharacterI(i));
+        
+       if (getActionI(actionA,i) instanceof Spell){
+           if (getActionI(actionA,i).getValue()<0){
+               getActionI(actionA,i).setTarget(choseCharacter(contA,3)); // Chose target in team A
+               changeTarget=false;}
        }
             
-       if (actionA instanceof Consumable)
-           if (((Consumable)actionA).getEffect().getValue()>0)
+       if (getActionI(actionA,i) instanceof Consumable)
+           if (((Consumable)getActionI(actionA,i)).getEffect().getValue()>0)
                 changeTarget=false;
             
        if(changeTarget)
-            actionA.setTarget(choseCharacter(contA,1)); // Chose target in team B 
+            getActionI(actionA,i).setTarget(choseCharacter(contA,1)); // Chose target in team B       
+       }
+       }
        
+       //Attacks teamA done
        
-       Character characterB=choseCharacter(contB,2);  // Chose source in team B
-       actionB=choseAction(contB,characterB);
-       actionB.setSource(characterB);
-       actionB.setTarget(choseCharacter(contB,3)); // Chose target in team A
-       
+       for(int i=0;i<teamB.getTeamNumber();i++){
+           changeTarget=true;
+            if(teamB.getCharacterI(i).isAlive()){
+                if(contB instanceof HumanController)
+                    display.display("\n"+teamB.getCharacterI(i).getName()+" "+"must");
+            actionB.add(choseAction(contB,teamB.getCharacterI(i)));
+            getActionI(actionB,i).setSource(teamB.getCharacterI(i));
+           
+       if (getActionI(actionB,i) instanceof Spell){
+           if (getActionI(actionB,i).getValue()<0){
+               getActionI(actionB,i).setTarget(choseCharacter(contB,1)); // Chose target in team B
+               changeTarget=false;
+           }
+       }
+            
+       if (getActionI(actionB,i) instanceof Consumable)
+           if (((Consumable)getActionI(actionB,i)).getEffect().getValue()>0)
+                changeTarget=false;
+            
+       if(changeTarget)
+            getActionI(actionB,i).setTarget(choseCharacter(contB,3)); // Chose target in team B 
+            }
+       }
+
        //we do the dmgs here
-       actionA.doEffect().applyEffect(actionA.getTarget());
-       display.display(" \n"+actionA.getTarget().getName()+ " lost "+ -actionA.getEffect().getValue()+"HP");
-       actionB.doEffect().applyEffect(actionB.getTarget());
-       display.display(actionB.getTarget().getName()+ " lost "+ -actionB.getEffect().getValue()+"HP \n");
+       
+       for(int i=0;i<actionA.size();i++){
+           getActionI(actionA,i).doEffect().applyEffect(getActionI(actionA,i).getTarget());
+            display.display(getActionI(actionA,i).getTarget().getName()+ " lost "+ -getActionI(actionA,i).getEffect().getValue()+"HP");
+       }
+       for(int i=0;i<actionB.size();i++){
+            getActionI(actionB,i).doEffect().applyEffect(getActionI(actionB,i).getTarget());
+            display.display(getActionI(actionB,i).getTarget().getName()+ " lost "+ -getActionI(actionB,i).getEffect().getValue()+"HP");
+       }
+       
+      
                 
    }
    
