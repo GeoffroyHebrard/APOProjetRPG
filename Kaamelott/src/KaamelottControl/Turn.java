@@ -52,7 +52,7 @@ public class Turn {
        if (cont instanceof AIController)
        {
            for (int i=0;i<team.getTeamNumber();i++){
-               if (team.getCharacterI(i).isAlive());
+               if (team.getCharacterI(i).isAlive())
                 return team.getCharacterI(i);
            }
            
@@ -131,55 +131,61 @@ public class Turn {
        teamA.showHp();
        teamB.showHp();
        actionA= new ArrayList();
-        actionB= new ArrayList();
+       actionB= new ArrayList();
        
        boolean changeTarget;
+       int j=0;
        for(int i=0;i<teamA.getTeamNumber();i++){
+           
            changeTarget=true;
-           if(teamA.getCharacterI(i).isAlive()){ 
-           if(contA instanceof HumanController)
+           if(teamA.getCharacterI(i).isAlive()){             
+            if(contA instanceof HumanController)
                    display.display("\n"+teamA.getCharacterI(i).getName()+" "+"must");
            actionA.add(choseAction(contA,teamA.getCharacterI(i)));
-           getActionI(actionA,i).setSource(teamA.getCharacterI(i));
+           getActionI(actionA,j).setSource(teamA.getCharacterI(i));
         
-       if (getActionI(actionA,i) instanceof Spell){
-           if (getActionI(actionA,i).getValue()<0){
-               getActionI(actionA,i).setTarget(choseCharacter(contA,3)); // Chose target in team A
+       if (getActionI(actionA,j) instanceof Spell){
+           if (getActionI(actionA,j).getValue()<0){
+               getActionI(actionA,j).setTarget(choseCharacter(contA,3)); // Chose target in team A
                changeTarget=false;}
        }
             
-       if (getActionI(actionA,i) instanceof Consumable)
-           if (((Consumable)getActionI(actionA,i)).getEffect().getValue()>0)
+       if (getActionI(actionA,j) instanceof Consumable)
+           if (((Consumable)getActionI(actionA,j)).getEffect().getValue()>0)
                 changeTarget=false;
             
        if(changeTarget)
-            getActionI(actionA,i).setTarget(choseCharacter(contA,1)); // Chose target in team B       
+            getActionI(actionA,j).setTarget(choseCharacter(contA,1)); // Chose target in team B
+       j++;
        }
        }
        
        //Attacks teamA done
-       
+       j=0;
        for(int i=0;i<teamB.getTeamNumber();i++){
            changeTarget=true;
+           
             if(teamB.getCharacterI(i).isAlive()){
+                
                 if(contB instanceof HumanController)
                     display.display("\n"+teamB.getCharacterI(i).getName()+" "+"must");
             actionB.add(choseAction(contB,teamB.getCharacterI(i)));
-            getActionI(actionB,i).setSource(teamB.getCharacterI(i));
+            getActionI(actionB,j).setSource(teamB.getCharacterI(i));
            
-       if (getActionI(actionB,i) instanceof Spell){
-           if (getActionI(actionB,i).getValue()<0){
-               getActionI(actionB,i).setTarget(choseCharacter(contB,1)); // Chose target in team B
+       if (getActionI(actionB,j) instanceof Spell){
+           if (getActionI(actionB,j).getValue()<0){
+               getActionI(actionB,j).setTarget(choseCharacter(contB,1)); // Chose target in team B
                changeTarget=false;
            }
        }
             
-       if (getActionI(actionB,i) instanceof Consumable)
-           if (((Consumable)getActionI(actionB,i)).getEffect().getValue()>0)
+       if (getActionI(actionB,j) instanceof Consumable)
+           if (((Consumable)getActionI(actionB,j)).getEffect().getValue()>0)
                 changeTarget=false;
             
        if(changeTarget)
-            getActionI(actionB,i).setTarget(choseCharacter(contB,3)); // Chose target in team B 
+            getActionI(actionB,j).setTarget(choseCharacter(contB,3)); // Chose target in team B 
+       j++;
             }
        }
 

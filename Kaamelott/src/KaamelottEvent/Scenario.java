@@ -49,6 +49,7 @@ public class Scenario {
         addEvent(makeCreateCharacter());
         addEvent(makeCreateCharacter());
         addEvent(makeCreateCharacter());
+        addEvent(makeTell(1));
         addSpells();       
         addEvent(makeFight(teams.get(0),teams.get(1)));
              
@@ -63,7 +64,7 @@ public class Scenario {
     public void createTeams(){
         addTeam();      
         addTeam();
-        teams.get(1).fillTeam(10);
+        teams.get(1).fillTeam(3);
     }
     
     
@@ -80,10 +81,11 @@ public class Scenario {
         return create;
     }
     
-    public Narrative makeTell()
+    public Narrative makeTell(int numTell)
     {
         List<String> narration= new ArrayList();
-        Narrative tell= new Narrative(narration,display);   
+        
+        Narrative tell =new Narrative(narration,display,teams.get(0),numTell);   
         return tell;
     }
     public AddCapacity makeCapacity(Capacity capacity,int nbCharac)
