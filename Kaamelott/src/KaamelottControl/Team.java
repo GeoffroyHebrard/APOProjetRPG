@@ -131,11 +131,14 @@ public class Team {
     public void showHp(){
         int max=characters.size();
         DisplayText display=new DisplayText();
+        String mess="";
         for (int i=0;i<max;i++)
             {
-                   display.display(this.getCharacterI(i).getName()+"-"+this.getCharacterI(i).getHp()+"HP\n");
+                   mess=mess+this.getCharacterI(i).getName()+"-"+this.getCharacterI(i).getHp()+"HP";
+                   if(i<max-1)
+                       mess=mess+"//";
             }
-        
+        display.display(mess);
         
         
     }

@@ -37,6 +37,11 @@ public class Weapon implements Item {
     public String getName() {
         return name;
     }
+
+    public int getValue() {
+        return damage;
+    }
+    
     
     
 }

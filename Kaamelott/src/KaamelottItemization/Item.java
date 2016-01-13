@@ -13,5 +13,6 @@ public interface Item {
     public void equipItem(KaamelottCharacter.Character Character);
     public void dropItem(KaamelottCharacter.Character Character);
     public String getName();
+    public int getValue();
 }
 

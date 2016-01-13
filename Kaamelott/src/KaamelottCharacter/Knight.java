@@ -23,8 +23,7 @@ public final class Knight extends Character {
       
     public void addNewEquipment(){
 
-        Item excalibur=new Weapon(20,"Excalibur",100,Characteristic.STRENGTH);
-       this.addEquipment(excalibur);
+        
        Item gipsy=new Weapon(22,"gipsy",100,Characteristic.STRENGTH);
        this.addEquipment(gipsy);
        

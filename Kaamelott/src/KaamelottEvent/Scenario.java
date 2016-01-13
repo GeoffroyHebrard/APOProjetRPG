@@ -7,10 +7,12 @@
 package KaamelottEvent;
 
 import KaamelottCapacities.*;
+import KaamelottCharacter.Characteristic;
 import KaamelottControl.DisplayText;
 import java.util.List;
 import KaamelottControl.*;
 import java.util.ArrayList;
+import KaamelottItemization.*;
 
 
 /**
@@ -50,6 +52,8 @@ public class Scenario {
         addEvent(makeCreateCharacter());
         addEvent(makeCreateCharacter());
         addEvent(makeTell(1));
+        gainObject(1);
+        gainObject(2);
         addSpells();       
         addEvent(makeFight(teams.get(0),teams.get(1)));
              
@@ -67,6 +71,10 @@ public class Scenario {
         teams.get(1).fillTeam(3);
     }
     
+    public void gainObject(int  nbItem){
+        AddItem addItem= new AddItem(teams.get(0),nbItem);
+         addEvent(addItem);
+    }
     
     public Fight makeFight(Team teamA,Team teamB )
     {        
@@ -108,6 +116,8 @@ public class Scenario {
             case 2:  ((Fight)events.get(i)).doFight();
                      break;
             case 3:  ((Narrative)events.get(i)).Tell();
+                     break;
+            case 4:  ((AddItem)events.get(i)).doAddItem();
                      break;
             
             default: {
