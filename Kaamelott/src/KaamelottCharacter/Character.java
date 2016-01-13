@@ -173,7 +173,7 @@ public abstract class Character {
         String mess="Which consumable do you wish to use ? ";
         for (int i=0;i<max;i++)
            {
-               mess=mess+"\n"+i+"-"+this.getConsumableI(i).getName()+" ("+this.getConsumableI(i).getNumber()+")";
+               mess=mess+"\n"+i+"-"+this.getConsumableI(i).getName()+" ("+this.getConsumableI(i).getNumber()+")\n";
                
            }
         mess=mess+max+"- Return";
