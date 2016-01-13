@@ -114,8 +114,9 @@ public class Scenario {
             } 
             String message=" 1.Use Potion"+"\n"
             +" 2. Equip Character"+"\n"
-            +" 3. Continue adventure"+"\n";
-            String messError="Choisissez un nombre entre "+1 +" et "+3;
+            +" 3. Continue adventure"+"\n"
+            +" 4. View Stats"+"\n";
+            String messError="Chose a number between "+1 +" and "+4;
         
         int number=0;
         if(events.get(i).getType()==2 ||events.get(i).getType()==0){
@@ -128,7 +129,9 @@ public class Scenario {
                     teams.get(0).equipCharacter();                   
                      break;
             case 3:  
-                     break;           
+                    teams.get(0).showStats());
+                     break;
+            case 4:
             
             default: {
                      break;}

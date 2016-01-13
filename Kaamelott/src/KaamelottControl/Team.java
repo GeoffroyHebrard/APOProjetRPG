@@ -75,10 +75,10 @@ public class Team {
     public void equipCharacter(){
         DisplayText display=new DisplayText();
         int max=characters.size();
-        String mess="Which character do you wish to equip ?";
+        String mess="Which character do you wish to equip ?\n";
         for (int i=0;i<max;i++)
            {
-               mess=mess+"\n"+i+"-"+this.getCharacterI(i).getName();
+               mess=mess+i+"-"+this.getCharacterI(i).getName()+"\n";
            }
         String messError="Please chose a number between 0 and "+max;
         mess=mess+max+"- Return";
@@ -88,20 +88,51 @@ public class Team {
         characters.get(value).equip();
     }
     
-public void takeObject(){
-        int max=characters.size();
-        String mess="Which character do you wish to use a consumable with ?"+"\n";
-        for (int i=0;i<max;i++)
-           {
-               mess=mess+i+"-"+this.getCharacterI(i).getName()+"\n";
-           }
-        String messError="Please chose a number between 0 and "+max;
-        DisplayText display=new DisplayText();
-        mess=mess+max+"- Return";
-        int value=display.getNumber(0,max+1,mess,messError);
-        if (value==max)
-            return ;
-        characters.get(value).useConsumable();
+    public void takeObject(){
+            int max=characters.size();
+            String mess="Which character do you wish to use a consumable with ?"+"\n";
+            for (int i=0;i<max;i++)
+               {
+                   mess=mess+i+"-"+this.getCharacterI(i).getName()+"-"+this.getCharacterI(i).getHp()+"HP"+"\n";
+               }
+            String messError="Please chose a number between 0 and "+max;
+            DisplayText display=new DisplayText();
+            mess=mess+max+"- Return";
+            int value=display.getNumber(0,max+1,mess,messError);
+            if (value==max)
+                return ;
+            characters.get(value).useConsumable();
     }        
+    
+    
+    public void showStats(){
+        int max=characters.size();
+            String mess="Which character do you wish to use a consumable with ?"+"\n";
+            for (int i=0;i<max;i++)
+               {
+                   mess=mess+i+"-"+this.getCharacterI(i).getName()+"-"+this.getCharacterI(i).getHp()+"HP\n";
+               }
+            String messError="Please chose a number between 0 and "+max;
+            DisplayText display=new DisplayText();
+            mess=mess+max+"- Return";
+            int value=display.getNumber(0,max+1,mess,messError);
+            if (value==max)
+                return ;
+            characters.get(value).stats();        
+        
+        
+        
+    }
      
+
+
+
+
+    public void showHp(){
+        
+    }
+
+
+
+
 }

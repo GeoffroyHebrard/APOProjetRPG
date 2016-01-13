@@ -44,7 +44,7 @@ public class CreateCharacter implements Event{
             +" 3.Knight"+"\n"
             +" 4.Thief"+"\n"
             +" 5.Warrior"+"\n";
-        String messError="Choisissez un nombre entre "+min +" et "+max;
+        String messError="Chose a Number between "+min +" and "+max;
         
         return display.getNumber(min,max,mess,messError);
     }

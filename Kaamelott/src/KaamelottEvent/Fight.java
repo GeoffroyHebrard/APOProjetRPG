@@ -28,6 +28,7 @@ public class Fight implements Event {
         this.display=display;
         this.contA=new HumanController();
         this.contB=new AIController();
+        this.xp=xp;
     }
 
     public int getType() {
@@ -49,14 +50,14 @@ public class Fight implements Event {
             turn.PlayTurn();
         }
         if(teamA.isTeamAlive())
-            display.display("you overcame your ennemy, Well done !");
+            display.display("ou overcame your ennemy, Well done !");
         else
-            display.display("you have been defeated");
+            display.display("You have been defeated");
         
         for (int i=0;i<teamA.getTeamNumber();i++)
         {
          if (teamA.getCharacterI(i).earnXp(xp)){
-             display.display("you earned a level with"+ teamA.getCharacterI(i).getName());
+             display.display("You earned a level with"+ teamA.getCharacterI(i).getName());
          }
         }
     }

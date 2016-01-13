@@ -185,6 +185,17 @@ public abstract class Character {
         consumables.get(value).doEffect();
     }
     
+    public void stats() {
+        display.display("STRENGTH="+this.characteristic.get(Characteristic.STRENGTH));
+        display.display("STRENGTH="+this.characteristic.get(Characteristic.HEALTH));
+        display.display("STRENGTH="+this.characteristic.get(Characteristic.DEFENSE));
+        display.display("STRENGTH="+this.characteristic.get(Characteristic.DEXTERITY));
+        display.display("STRENGTH="+this.characteristic.get(Characteristic.INTELLIGENCE));
+        
+    }
+    
+    
+    
     
     public void addNewEquipment(){
 
