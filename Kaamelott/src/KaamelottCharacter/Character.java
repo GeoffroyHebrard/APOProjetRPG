@@ -47,7 +47,6 @@ public abstract class Character {
         consumables= new ArrayList<>();
         equipment= new ArrayList<>();
         display=new DisplayText();
-        addNewEquipment();
         }
     
     public String getName() {
@@ -186,22 +185,14 @@ public abstract class Character {
     }
     
     public void stats() {
-        display.display("HEALTH="+this.characteristic.get(Characteristic.HEALTH)+"/"+this.hp);
-        display.display("STRENGTH="+this.characteristic.get(Characteristic.STRENGTH));
-        display.display("DEFENSE="+this.characteristic.get(Characteristic.DEFENSE));
-        display.display("DEXTERITY="+this.characteristic.get(Characteristic.DEXTERITY));
-        display.display("INTELLIGENCE="+this.characteristic.get(Characteristic.INTELLIGENCE));
+        display.display("Level"+this.level);
+        display.display("Health="+this.characteristic.get(Characteristic.HEALTH)+"/"+this.hp);
+        display.display("Strength"+this.characteristic.get(Characteristic.STRENGTH));
+        display.display("Defense="+this.characteristic.get(Characteristic.DEFENSE));
+        display.display("Dexterity="+this.characteristic.get(Characteristic.DEXTERITY));
+        display.display("Intelligence="+this.characteristic.get(Characteristic.INTELLIGENCE));
         
-    }
-    
-    
-    
-    
-    public void addNewEquipment(){
-
-        Item item=new Weapon(20,"Excalibur",100,Characteristic.STRENGTH);
-       this.addEquipment(item);
-
+        
     }
     
 }

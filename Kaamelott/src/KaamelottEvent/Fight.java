@@ -50,7 +50,7 @@ public class Fight implements Event {
             turn.playTurn();
         }
         if(teamA.isTeamAlive())
-            display.display("ou overcame your ennemy, Well done !");
+            display.display("You overcame your ennemy, Well done !");
         else
             display.display("You have been defeated");
         

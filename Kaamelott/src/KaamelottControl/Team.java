@@ -89,36 +89,36 @@ public class Team {
     }
     
     public void takeObject(){
-            int max=characters.size();
-            String mess="Which character do you wish to use a consumable with ?"+"\n";
-            for (int i=0;i<max;i++)
-               {
-                   mess=mess+i+"-"+this.getCharacterI(i).getName()+"-"+this.getCharacterI(i).getHp()+"HP"+"\n";
-               }
-            String messError="Please chose a number between 0 and "+max;
-            DisplayText display=new DisplayText();
-            mess=mess+max+"- Return";
-            int value=display.getNumber(0,max+1,mess,messError);
-            if (value==max)
-                return ;
-            characters.get(value).useConsumable();
+        int max=characters.size();
+        String mess="Which character do you wish to use a consumable with ?"+"\n";
+        for (int i=0;i<max;i++)
+            {
+                mess=mess+i+"-"+this.getCharacterI(i).getName()+"-"+this.getCharacterI(i).getHp()+"HP"+"\n";
+            }
+        String messError="Please chose a number between 0 and "+max;
+        DisplayText display=new DisplayText();
+        mess=mess+max+"- Return";
+        int value=display.getNumber(0,max+1,mess,messError);
+        if (value==max)
+            return ;
+        characters.get(value).useConsumable();              
     }        
     
     
     public void showStats(){
-        int max=characters.size();
-            String mess="Which character do you wish to see stats ?"+"\n";
-            for (int i=0;i<max;i++)
-               {
-                   mess=mess+i+"-"+this.getCharacterI(i).getName()+"-"+this.getCharacterI(i).getHp()+"HP\n";
-               }
-            String messError="Please chose a number between 0 and "+max;
-            DisplayText display=new DisplayText();
-            mess=mess+max+"- Return";
-            int value=display.getNumber(0,max+1,mess,messError);
-            if (value==max)
-                return ;
-            characters.get(value).stats();        
+            int max=characters.size();
+        String mess="Which character do you wish to see stats ?"+"\n";
+        for (int i=0;i<max;i++)
+            {
+                mess=mess+i+"-"+this.getCharacterI(i).getName()+"-"+this.getCharacterI(i).getHp()+"HP"+"\n";
+            }
+        String messError="Please chose a number between 0 and "+max;
+        DisplayText display=new DisplayText();
+        mess=mess+max+"- Return";
+        int value=display.getNumber(0,max+1,mess,messError);
+        if (value==max)
+            return ;
+        characters.get(value).stats();        
         
         
         
@@ -129,6 +129,14 @@ public class Team {
 
 
     public void showHp(){
+        int max=characters.size();
+        DisplayText display=new DisplayText();
+        for (int i=0;i<max;i++)
+            {
+                   display.display(this.getCharacterI(i).getName()+"-"+this.getCharacterI(i).getHp()+"HP\n");
+            }
+        
+        
         
     }
 
