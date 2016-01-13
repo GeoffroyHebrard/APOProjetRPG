@@ -63,7 +63,7 @@ public class Scenario {
     public void createTeams(){
         addTeam();      
         addTeam();
-        teams.get(1).fillTeam(2);
+        teams.get(1).fillTeam(10);
     }
     
     

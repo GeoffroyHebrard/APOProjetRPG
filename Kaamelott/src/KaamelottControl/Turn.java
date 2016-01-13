@@ -23,8 +23,6 @@ public class Turn {
         this.contA=contA;
         this.contB=contB;
         display=new DisplayText();
-        actionA= new ArrayList();
-        actionB= new ArrayList();
     }
    public Action getActionI(List<Action> listAction,int i){
        return listAction.get(i);
@@ -129,9 +127,11 @@ public class Turn {
        return character.getCapacityI(num);
    }
    
-   public void PlayTurn(){
+   public void playTurn(){
        teamA.showHp();
        teamB.showHp();
+       actionA= new ArrayList();
+        actionB= new ArrayList();
        
        boolean changeTarget;
        for(int i=0;i<teamA.getTeamNumber();i++){
