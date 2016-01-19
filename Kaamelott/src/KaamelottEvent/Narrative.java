@@ -45,6 +45,17 @@ public class Narrative implements Event{
         narration.add("everybody accepted him as the king of Kaamelott.");
         narration.add("But there was still much to do to acquire the Holy Graal.... ");
                 break;
+            case 2:narration.add("But they still are people who don't agree with that and try to stop you ");
+            narration.add("Your team try to find a druid who cause trouble,");
+            narration.add("he has send 3 acolyte to stop you in your quest...");   
+                break;
+            case 3:narration.add("But they still are people who don't agree with that and try to stop you. ");
+            narration.add("Your team try to find a druid who cause trouble in Kaamelott,");
+            narration.add("he has send 3 acolyte to stop you in your quest...");   
+                break;
+                case 4:narration.add("After drinking some water at the tavern , you go back to your home,");
+            narration.add("you run into a dangerous enemy...");
+                break;  
             default: 
                 break;
         }
