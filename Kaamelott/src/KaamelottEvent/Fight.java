@@ -51,8 +51,11 @@ public class Fight implements Event {
         }
         if(teamA.isTeamAlive())
             display.display("You overcame your ennemy, Well done !");
-        else
+        else{
             display.display("You have been defeated");
+             System.exit(0);
+        }
+            
         
         for (int i=0;i<teamA.getTeamNumber();i++)
         {

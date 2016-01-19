@@ -8,8 +8,7 @@ package KaamelottEvent;
 import KaamelottCharacter.Characteristic;
 import KaamelottControl.DisplayText;
 import KaamelottControl.Team;
-import KaamelottItemization.Item;
-import KaamelottItemization.Weapon;
+import KaamelottItemization.*;
 
 /**
  *
@@ -37,8 +36,11 @@ public class AddItem implements Event{
     public void doAddItem(){
     DisplayText display=new DisplayText();
     int nbCharac=0;
+    String characteristic;
     Item item;
-     
+    int nbWeaponStrength=1;
+    int nbWeaponIntelligence=1+nbWeaponStrength;
+    int nbArmor=1+nbWeaponIntelligence;
         switch(nbItem){
             case 1:
                 item= new Weapon(40,"Excalibur",10,Characteristic.STRENGTH);
@@ -47,13 +49,21 @@ public class AddItem implements Event{
                 item= new Weapon(40,"Magic stick",10,Characteristic.INTELLIGENCE);
                 break;
             default:
-                item= new Weapon(0,"Toothpick",10,Characteristic.STRENGTH);
+                item= new Armor(0,"Thornmail",10);
                 break;
         }
-        
+        if (nbItem>nbWeaponStrength)
+        {
+            if (nbItem>nbWeaponIntelligence)
+                characteristic=" Defense";
+            else
+                 characteristic=" Intelligence";  
+        }
+        else
+           characteristic="Srength";
         
         if(nbItem!=1){
-            String mess="Chose which character will get this:"+item.getName()+"(+"+item.getValue()+" ) \n";
+            String mess="Chose which character will get this:"+item.getName()+"(+"+item.getValue()+" "+characteristic+") \n";
             for (int i=0;i<team.getTeamNumber();i++)
             {
                 mess=mess+i+"-"+team.getCharacterI(i).getName()+"\n";

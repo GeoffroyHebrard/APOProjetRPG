@@ -134,7 +134,7 @@ public class Team {
         String mess="";
         for (int i=0;i<max;i++)
             {
-                   mess=mess+this.getCharacterI(i).getName()+"-"+this.getCharacterI(i).getHp()+"HP";
+                   mess=mess+this.getCharacterI(i).getName()+": "+this.getCharacterI(i).getHp()+"HP";
                    if(i<max-1)
                        mess=mess+"//";
             }

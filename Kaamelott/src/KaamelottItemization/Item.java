@@ -14,5 +14,6 @@ public interface Item {
     public void dropItem(KaamelottCharacter.Character Character);
     public String getName();
     public int getValue();
+    public boolean isEquiped();
 }
 

@@ -2,6 +2,7 @@ package KaamelottCharacter;
 import KaamelottCapacities.Capacity;
 import KaamelottControl.Action;
 import KaamelottControl.DisplayText;
+import KaamelottItemization.Armor;
 import KaamelottItemization.Consumable;
 import KaamelottItemization.Effect;
 import KaamelottItemization.Item;
@@ -65,12 +66,16 @@ public abstract class Character {
         return maxWeight;
     }
     
-    public void setCharac(int value,Characteristic charac){ 
+    public int setCharac(int value,Characteristic charac){ 
         int test=this.getCharac(charac)+value;
         if (charac==Characteristic.HEALTH){
                 if(test>=hp) test=hp;
+                if(test<=0) test = 0;
                 }
+        
+            
         this.characteristic.put(charac,test);
+        return test;
     }
     
     public int getCharac(Characteristic charac){
@@ -159,6 +164,8 @@ public abstract class Character {
         String mess="Which equipment do you wish to equip ? \n";
         for (int i=0;i<max;i++)
            {
+               if (this.getEquipmentI(i).isEquiped())
+                   mess=mess+"(Equiped)";
                mess=mess+i+"-"+this.getEquipmentI(i).getName()+"\n";
            }
         mess=mess+max+"- Return";
@@ -166,6 +173,13 @@ public abstract class Character {
         int value=display.getNumber(0,max,mess,messError);
         if (value==max)
             return ;
+        if(this.getEquipmentI(value) instanceof Armor){
+            this.desequipArmor();
+        }
+        else
+        {
+            this.desequipWeapon();
+        }
         equipment.get(value).equipItem(this);
     }
     public void useConsumable() {
@@ -185,9 +199,9 @@ public abstract class Character {
     }
     
     public void stats() {
-        display.display("Level"+this.level);
+        display.display(this.name+" : Level "+this.level);
         display.display("Health="+this.characteristic.get(Characteristic.HEALTH)+"/"+this.hp);
-        display.display("Strength"+this.characteristic.get(Characteristic.STRENGTH));
+        display.display("Strength="+this.characteristic.get(Characteristic.STRENGTH));
         display.display("Defense="+this.characteristic.get(Characteristic.DEFENSE));
         display.display("Dexterity="+this.characteristic.get(Characteristic.DEXTERITY));
         display.display("Intelligence="+this.characteristic.get(Characteristic.INTELLIGENCE));
@@ -195,4 +209,21 @@ public abstract class Character {
         
     }
     
+    public void desequipArmor(){
+        for (int i=0;i<equipment.size();i++)
+        {
+            if (getEquipmentI(i)instanceof Armor ){
+                this.getEquipmentI(i).dropItem(this);
+            }       
+        }      
+    }
+    
+    public void desequipWeapon(){
+        for (int i=0;i<equipment.size();i++)
+        {
+            if (getEquipmentI(i)instanceof Weapon ){
+                this.getEquipmentI(i).dropItem(this);
+            }       
+        }      
+    }
 }

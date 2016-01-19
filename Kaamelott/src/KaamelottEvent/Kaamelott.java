@@ -6,9 +6,6 @@
 package KaamelottEvent;
 
 import KaamelottControl.DisplayText;
-import KaamelottControl.Team;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *

@@ -8,11 +8,12 @@ package KaamelottEvent;
 
 import KaamelottCapacities.*;
 import KaamelottCharacter.Characteristic;
-import KaamelottControl.DisplayText;
-import java.util.List;
+import KaamelottCharacter.*;
 import KaamelottControl.*;
-import java.util.ArrayList;
+import KaamelottControl.DisplayText;
 import KaamelottItemization.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -56,6 +57,8 @@ public class Scenario {
         gainObject(2);
         addSpells();       
         addEvent(makeFight(teams.get(0),teams.get(1)));
+        addEvent(makeTell(2));
+        addEvent(makeFight(teams.get(0),teams.get(2)));
              
     }
     
@@ -66,9 +69,15 @@ public class Scenario {
     }
     
     public void createTeams(){
-        addTeam();      
+        addTeam();    
+        //team 1
         addTeam();
         teams.get(1).fillTeam(3);
+        //team 2
+        addTeam();
+        teams.get(2).addCharacterTeam(new Crossbowman("Michel"));
+        teams.get(2).addCharacterTeam(new Druid("Elias"));
+
     }
     
     public void gainObject(int  nbItem){
@@ -124,7 +133,7 @@ public class Scenario {
                      break;}
             
             } 
-            String message=" 1.Use Potion"+"\n"
+            String message="Chose an action \n 1. Use Potion"+"\n"
             +" 2. Equip Character"+"\n"
             +" 3. View Stats"+"\n"
             +" 4. Continue adventure"+"\n";
