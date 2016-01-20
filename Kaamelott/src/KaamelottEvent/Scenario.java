@@ -55,10 +55,37 @@ public class Scenario {
         addEvent(makeTell(1));
         gainObject(1);
         gainObject(2);
-        addSpells();       
-        addEvent(makeFight(teams.get(0),teams.get(1)));
+        addSpells(); 
         addEvent(makeTell(2));
+        addEvent(makeFight(teams.get(0),teams.get(1)));
+        gainObject(3);
+        addEvent(makeTell(3));
         addEvent(makeFight(teams.get(0),teams.get(2)));
+        gainObject(4);
+        gainObject(5);
+        addEvent(makeTell(4));
+        addEvent(makeFight(teams.get(0),teams.get(3)));
+        gainObject(6);
+        gainObject(7);
+        addEvent(makeTell(5));
+        addEvent(makeCreateCharacter());
+        addEvent(makeTell(6));
+        addEvent(makeFight(teams.get(0),teams.get(4)));
+        gainObject(8);
+        gainObject(9);
+        addEvent(makeTell(7));
+        addEvent(makeFight(teams.get(0),teams.get(5)));
+        gainObject(10);
+        addEvent(makeTell(8));
+        addEvent(makeCreateCharacter());
+        addEvent(makeTell(9));
+        addEvent(makeFight(teams.get(0),teams.get(6)));
+        addEvent(makeTell(9));
+        
+        
+
+        
+        
              
     }
     
@@ -72,11 +99,34 @@ public class Scenario {
         addTeam();    
         //team 1
         addTeam();
-        teams.get(1).fillTeam(3);
+         teams.get(1).addCharacterTeam(new Druid("XxNecroxX"));
+         teams.get(1).addCharacterTeam(new Druid("OoNecrooO"));
         //team 2
         addTeam();
-        teams.get(2).addCharacterTeam(new Crossbowman("Michel"));
-        teams.get(2).addCharacterTeam(new Druid("Elias"));
+        teams.get(2).addCharacterTeam(new Crossbowman("Bobo"));
+        teams.get(2).addCharacterTeam(new Druid("Bobheal"));
+        //team 3
+        addTeam();
+        teams.get(3).addCharacterTeam(new Knight("Roukie"));
+        teams.get(3).addCharacterTeam(new Thief("Roumain"));
+        teams.get(3).addCharacterTeam(new Thief("Roucool"));
+        addTeam();
+        teams.get(4).addCharacterTeam(new Warrior("Dragunov"));
+        teams.get(4).addCharacterTeam(new Knight("IG0R"));
+        teams.get(4).addCharacterTeam(new Knight("Apalkov"));
+        addTeam();
+        teams.get(5).addCharacterTeam(new Knight("Leonardo"));
+        teams.get(5).addCharacterTeam(new Thief("Donatello"));
+        teams.get(5).addCharacterTeam(new Warrior("Michelangelo"));
+        teams.get(5).addCharacterTeam(new Crossbowman("Raphael"));
+        addTeam();
+        teams.get(6).addCharacterTeam(new Druid("DarkHole"));
+        teams.get(6).addCharacterTeam(new Druid("DarkWizard"));
+        teams.get(6).addCharacterTeam(new Druid("DarkSidius"));
+        teams.get(6).addCharacterTeam(new Druid("DarkMaul"));
+        
+        
+        
 
     }
     

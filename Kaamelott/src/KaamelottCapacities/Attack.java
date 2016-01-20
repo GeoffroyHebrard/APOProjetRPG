@@ -39,7 +39,7 @@ public class Attack extends Capacity {
     {
         Map<Characteristic, Integer> characteristic = getTarget().getCharacteristic(); 
     
-        dmg=5*getSource().getCharacteristic().get(Characteristic.STRENGTH);
+        dmg=2*getSource().getCharacteristic().get(Characteristic.STRENGTH);
         int dextTar=getTarget().getCharacteristic().get(Characteristic.DEXTERITY);
         int dextSrc=getSource().getCharacteristic().get(Characteristic.DEXTERITY);
         int defTar=getTarget().getCharacteristic().get(Characteristic.DEFENSE);

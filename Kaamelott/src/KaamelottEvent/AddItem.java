@@ -43,10 +43,34 @@ public class AddItem implements Event{
     int nbArmor=1+nbWeaponIntelligence;
         switch(nbItem){
             case 1:
-                item= new Weapon(40,"Excalibur",10,Characteristic.STRENGTH);
+                item= new Weapon(30,"Excalibur",10,Characteristic.STRENGTH);
                 break;
             case 2:
-                item= new Weapon(40,"Magic stick",10,Characteristic.INTELLIGENCE);
+                item= new Weapon(7,"Magic staff",10,Characteristic.INTELLIGENCE);
+                break;
+            case 3:
+                item= new Weapon(10,"Apprentice Crossbow",10,Characteristic.DEXTERITY);
+                break;
+            case 4:
+                item= new Armor(15,"Deadman's plate",20);
+                break;
+            case 5:
+                item= new Weapon(20,"dagger",10,Characteristic.DEXTERITY);
+                break;
+            case 6:
+                item= new Armor(20,"Splint Cuirass",30);
+                break;
+            case 7:
+                item= new Weapon(30,"Butcher's Carver",10,Characteristic.STRENGTH);
+                break;
+            case 8:
+                item= new Weapon(35,"Grand Sword",10,Characteristic.STRENGTH);
+                break;
+            case 9:
+                item= new Weapon(35,"Deadeye",10,Characteristic.DEXTERITY);
+                break;
+            case 10:
+                item= new Weapon(30,"Envious Blade",10,Characteristic.DEXTERITY);
                 break;
             default:
                 item= new Armor(0,"Thornmail",10);
