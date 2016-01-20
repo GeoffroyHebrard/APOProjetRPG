@@ -39,11 +39,6 @@ public abstract class Character {
         maxWeight = 500;
         experience=0;
         characteristic = new HashMap<>();
-        characteristic.put(Characteristic.HEALTH, 150);
-        characteristic.put(Characteristic.STRENGTH, 0);
-        characteristic.put(Characteristic.DEXTERITY, 0);
-        characteristic.put(Characteristic.INTELLIGENCE, 0);
-        characteristic.put(Characteristic.DEFENSE, 0);
         capacities = new ArrayList<>();  
         consumables= new ArrayList<>();
         equipment= new ArrayList<>();
@@ -135,6 +130,7 @@ public abstract class Character {
             this.level=this.level+1;
             this.experience=this.experience-limit;
             this.hp=hp+100*this.level;
+            setCharac(100*this.level,Characteristic.HEALTH);
             setCharac(2,Characteristic.DEFENSE);
             setCharac(2,Characteristic.DEXTERITY);
             setCharac(2,Characteristic.STRENGTH);
