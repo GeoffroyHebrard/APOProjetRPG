@@ -48,7 +48,7 @@ public class Narrative implements Event{
             case 2:narration.add("But they still are people who don't agree with that and try to stop you ");
             narration.add("Your team try to find a druid who cause trouble,");
             narration.add("he has send 2 acolytes to stop you in your quest...\n\n");   
-            narration.add("After drinking some water at the tavern , you go back to your home,");
+            narration.add("After drinking some goat's milk at the tavern , you go back to your home,");
             narration.add("you run into a dangerous enemy...");
                 break;  
             case 3:narration.add("After your Amazing fight, you will looking for more information,");

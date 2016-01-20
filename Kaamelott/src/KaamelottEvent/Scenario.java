@@ -54,32 +54,32 @@ public class Scenario {
         addEvent(makeCreateCharacter());
         addEvent(makeTell(1));
         gainObject(1);
-        gainObject(2);
+        gainObject(11);
         addSpells(); 
         addEvent(makeTell(2));
-        addEvent(makeFight(teams.get(0),teams.get(1)));
-        gainObject(3);
+        addEvent(makeFight(teams.get(0),teams.get(1),100));
+        gainObject(21);
         addEvent(makeTell(3));
-        addEvent(makeFight(teams.get(0),teams.get(2)));
-        gainObject(4);
-        gainObject(5);
+        addEvent(makeFight(teams.get(0),teams.get(2),150));
+        gainObject(31);
+        gainObject(2);
         addEvent(makeTell(4));
-        addEvent(makeFight(teams.get(0),teams.get(3)));
-        gainObject(6);
-        gainObject(7);
+        addEvent(makeFight(teams.get(0),teams.get(3),2000));
+        gainObject(22);
+        gainObject(3);
         addEvent(makeTell(5));
         addEvent(makeCreateCharacter());
         addEvent(makeTell(6));
-        addEvent(makeFight(teams.get(0),teams.get(4)));
-        gainObject(8);
-        gainObject(9);
+        addEvent(makeFight(teams.get(0),teams.get(4),250));
+        gainObject(23);
+        gainObject(32);
         addEvent(makeTell(7));
-        addEvent(makeFight(teams.get(0),teams.get(5)));
-        gainObject(10);
+        addEvent(makeFight(teams.get(0),teams.get(5),300));
+        gainObject(24);
         addEvent(makeTell(8));
         addEvent(makeCreateCharacter());
         addEvent(makeTell(9));
-        addEvent(makeFight(teams.get(0),teams.get(6)));
+        addEvent(makeFight(teams.get(0),teams.get(6),350));
         addEvent(makeTell(9));
         
         
@@ -135,10 +135,10 @@ public class Scenario {
          addEvent(addItem);
     }
     
-    public Fight makeFight(Team teamA,Team teamB )
+    public Fight makeFight(Team teamA,Team teamB,int xp )
     {        
 
-        Fight fight=new Fight(teamA,teamB,display,150);
+        Fight fight=new Fight(teamA,teamB,display,xp);
         return fight;
     }
     
@@ -191,7 +191,7 @@ public class Scenario {
             String messError="Chose a number between "+1 +" and "+4;
         
         int number=0;
-        if(events.get(i).getType()==2 ||events.get(i).getType()==0){
+        if(events.get(i).getType()==2 ||events.get(i).getType()==4){
         while (number!=4){
         number=display.getNumber(1,4,message,messError);
         switch (number) {

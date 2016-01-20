@@ -195,7 +195,7 @@ public abstract class Character {
         int value=display.getNumber(0,max,mess,messError);
         if (value==max)
             return ;
-        consumables.get(value).doEffect();
+        consumables.get(value).doEffect().applyEffect(this);
     }
     
     public void stats() {
