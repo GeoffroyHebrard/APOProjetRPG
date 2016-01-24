@@ -30,7 +30,7 @@ public class CreateCharacter implements Event{
     
     public String askName(){
         String message="Chose the name of your hero";
-        return display.getMessage(message);
+        return display.getName(message);
     }
     public int askType(){
         

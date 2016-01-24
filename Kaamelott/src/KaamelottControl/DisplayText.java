@@ -33,12 +33,25 @@ public class DisplayText {
         System.out.println(message);
     }
     
+    public String getName(String message){
+        display(message);
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        if(str.length()==0)
+        {
+            message=message+"\nPlease don't chose an empty name";
+            getMessage(message);
+        }
+            return str;
+    }
+    
     public String getMessage(String message){
         display(message);
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         return str;
     }
+    
     public int getInteger(int min){
         message="";
         String mes = getMessage(message);
