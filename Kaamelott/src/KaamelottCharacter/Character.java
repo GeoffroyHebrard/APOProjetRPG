@@ -1,6 +1,5 @@
 package KaamelottCharacter;
 import KaamelottCapacities.Capacity;
-import KaamelottControl.Action;
 import KaamelottControl.DisplayText;
 import KaamelottItemization.Armor;
 import KaamelottItemization.Consumable;
@@ -32,10 +31,12 @@ public abstract class Character {
     private List<Item> equipment;
     DisplayText display;
 
-    public Character(String name, String className) {
+
+    
+    public Character(String name, String className,int level) {
         this.name = name;
         this.className = className;
-        level =1;
+        this.level =level;
         maxWeight = 500;
         experience=0;
         characteristic = new HashMap<>();
@@ -130,7 +131,7 @@ public abstract class Character {
             this.level=this.level+1;
             this.experience=this.experience-limit;
             this.hp=hp+100*this.level;
-            setCharac(100*this.level,Characteristic.HEALTH);
+            setCharac(100,Characteristic.HEALTH);
             setCharac(2,Characteristic.DEFENSE);
             setCharac(2,Characteristic.DEXTERITY);
             setCharac(2,Characteristic.STRENGTH);
@@ -162,7 +163,9 @@ public abstract class Character {
            {
                if (this.getEquipmentI(i).isEquiped())
                    mess=mess+"(Equiped)";
-               mess=mess+i+"-"+this.getEquipmentI(i).getName()+"\n";
+               mess=mess+i+"-"+this.getEquipmentI(i).getName()+"(+";
+               mess=mess+this.getEquipmentI(i).getValue()+this.getEquipmentI(i).getCharac()+" )\n";
+
            }
         mess=mess+max+"- Return";
         String messError="Please chose a number between 0 and "+max;
@@ -181,10 +184,12 @@ public abstract class Character {
     public void useConsumable() {
         int max=consumables.size();
         String mess="Which consumable do you wish to use ? ";
-        for (int i=0;i<max;i++)
+        for (int i=0;i<consumables.size();i++)
            {
-               mess=mess+"\n"+i+"-"+this.getConsumableI(i).getName()+" ("+this.getConsumableI(i).getNumber()+")\n";
-               
+               if(this.consumables.get(i).getNumber()>0)
+                mess=mess+"\n"+i+"-"+this.getConsumableI(i).getName()+" ("+this.getConsumableI(i).getNumber()+")\n";
+               else 
+                   max--;
            }
         mess=mess+max+"- Return";
         String messError="Please chose a number between 0 and "+max;

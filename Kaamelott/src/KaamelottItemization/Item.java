@@ -15,5 +15,6 @@ public interface Item {
     public String getName();
     public int getValue();
     public boolean isEquiped();
+    public String getCharac();
 }
 

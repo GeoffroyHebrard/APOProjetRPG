@@ -24,7 +24,6 @@ public class Scenario {
     private List<Event> events;
     private DisplayText display;
     private List<Team> teams;
-    private List<Capacity> capacities;
 
     public Scenario(DisplayText display) {
         this.display = display;
@@ -55,16 +54,16 @@ public class Scenario {
         addEvent(makeTell(1));
         gainObject(1);
         gainObject(11);
-        addSpells(); 
         addEvent(makeTell(2));
         addEvent(makeFight(teams.get(0),teams.get(1),100));
+        addEvent(makeCapacity(0));
         gainObject(21);
         addEvent(makeTell(3));
         addEvent(makeFight(teams.get(0),teams.get(2),150));
         gainObject(31);
         gainObject(2);
         addEvent(makeTell(4));
-        addEvent(makeFight(teams.get(0),teams.get(3),2000));
+        addEvent(makeFight(teams.get(0),teams.get(3),200));
         gainObject(22);
         gainObject(3);
         addEvent(makeTell(5));
@@ -89,11 +88,6 @@ public class Scenario {
              
     }
     
-    public void addSpells(){
-        
-        Capacity capacity = new Spell(40,"Fireball");
-        addEvent(makeCapacity(capacity,0));
-    }
     
     public void createTeams(){
         addTeam();    
@@ -110,15 +104,18 @@ public class Scenario {
         teams.get(3).addCharacterTeam(new Knight("Roukie"));
         teams.get(3).addCharacterTeam(new Thief("Roumain"));
         teams.get(3).addCharacterTeam(new Thief("Roucool"));
+        //team 4
         addTeam();
         teams.get(4).addCharacterTeam(new Warrior("Dragunov"));
         teams.get(4).addCharacterTeam(new Knight("IG0R"));
         teams.get(4).addCharacterTeam(new Knight("Apalkov"));
+        //team 5
         addTeam();
         teams.get(5).addCharacterTeam(new Knight("Leonardo"));
         teams.get(5).addCharacterTeam(new Thief("Donatello"));
         teams.get(5).addCharacterTeam(new Warrior("Michelangelo"));
         teams.get(5).addCharacterTeam(new Crossbowman("Raphael"));
+        //team 6
         addTeam();
         teams.get(6).addCharacterTeam(new Druid("DarkHole"));
         teams.get(6).addCharacterTeam(new Druid("DarkWizard"));
@@ -155,10 +152,10 @@ public class Scenario {
         Narrative tell =new Narrative(narration,display,teams.get(0),numTell);   
         return tell;
     }
-    public AddCapacity makeCapacity(Capacity capacity,int nbCharac)
+    public AddCapacity makeCapacity(int nbCapacity)
     {
         
-        AddCapacity addCapacity= new AddCapacity(nbCharac,capacity);   
+        AddCapacity addCapacity= new AddCapacity(nbCapacity);   
         return addCapacity;
     }
     

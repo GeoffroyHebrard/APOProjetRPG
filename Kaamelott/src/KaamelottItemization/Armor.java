@@ -43,6 +43,8 @@ public class Armor implements Item{
         return defense;
     }
     
-    
+        public String getCharac(){
+        return " Defense";
+    }
   
 }
