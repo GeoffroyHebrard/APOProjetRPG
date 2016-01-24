@@ -3,6 +3,7 @@ import KaamelottCharacter.Character;
 import KaamelottItemization.Consumable;
 import KaamelottCapacities.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -23,6 +24,9 @@ public class Turn {
         this.contA=contA;
         this.contB=contB;
         display=new DisplayText();
+        actionA= new ArrayList();
+        actionB= new ArrayList();
+        
     }
    public Action getActionI(List<Action> listAction,int i){
        return listAction.get(i);
@@ -184,30 +188,64 @@ public class Turn {
                 changeTarget=false;
             
        if(changeTarget)
-            getActionI(actionB,j).setTarget(choseCharacter(contB,3)); // Chose target in team B 
+            getActionI(actionB,j).setTarget(choseCharacter(contB,3)); // Chose target in team A
        j++;
             }
        }
-
-       //we do the dmgs here
-       
+       //we put the speed of the action here
        for(int i=0;i<actionA.size();i++){
-           getActionI(actionA,i).doEffect().applyEffect(getActionI(actionA,i).getTarget());
-            display.display(getActionI(actionA,i).getTarget().getName()+ " lost "+ -getActionI(actionA,i).getEffect().getValue()+"HP");
+           actionA.get(i).setSpeed();
        }
        for(int i=0;i<actionB.size();i++){
-            getActionI(actionB,i).doEffect().applyEffect(getActionI(actionB,i).getTarget());
+           actionB.get(i).setSpeed();
+       }
+       // we sort the action with their speed here
+       sortListAction();
+       //we do the dmgs here
+       
+       for(int i=0;i<actionB.size();i++){
+           if(getActionI(actionB,i).getSource().isAlive()){
+           getActionI(actionB,i).doEffect().applyEffect(getActionI(actionB,i).getTarget());
+           if(getActionI(actionB,i).getEffect().getValue()<0)
+           {
             display.display(getActionI(actionB,i).getTarget().getName()+ " lost "+ -getActionI(actionB,i).getEffect().getValue()+"HP");
+           }
+           else
+           {
+               display.display(getActionI(actionB,i).getTarget().getName()+ " won "+ getActionI(actionB,i).getEffect().getValue()+"HP");
+           }
+           }
        }
        
       
                 
    }
    
-   
-   
-   
-   
-   
+  public int getIndexOfMax() {
+    int indexMax=actionA.size()-1;
+    int valueMax=actionA.get(indexMax).getSpeed();
+    for (int i = 0; i < actionA.size(); i++) {
+        int f = actionA.get(i).getSpeed();
+        if (f>valueMax) {
+            valueMax = f;
+            indexMax = i;
+        }
+    }
+    return indexMax;
+}
+  public void sortListAction(){
+    for(int i=0;i<actionB.size();i++){
+        actionA.add(actionB.get(i));
+    }
+    actionB= new ArrayList();
+    int nbActionA=actionA.size();
+    for (int i = 0; i <nbActionA ; i++) {
+            int max=getIndexOfMax();
+            actionB.add(actionA.get(max));
+            actionA.remove(max);
+        }
+    }
+     
+  
    
 }

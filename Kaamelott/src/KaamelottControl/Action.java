@@ -1,6 +1,7 @@
 package KaamelottControl;
 import KaamelottCharacter.Character;
 import KaamelottCharacter.Characteristic;
+import KaamelottItemization.Consumable;
 import KaamelottItemization.Effect;
 
 public abstract class Action {
@@ -8,19 +9,19 @@ public abstract class Action {
     private String name;
     private Character target;
     private Character source;
-    private int vitesse;
+    private int speed;
 
     public Action(String name,Character target, Character source) {
         this.target = target;
         this.source = source;
-        this.vitesse=target.getCharacteristic().get(Characteristic.DEXTERITY);
+        this.speed=target.getCharacteristic().get(Characteristic.DEXTERITY);
         this.name=name;
          
     }  
 
     public Action(String name) {
         this.name = name;
-        this.vitesse=0;
+        this.speed=0;
     }
     
     
@@ -48,7 +49,18 @@ public abstract class Action {
     public void setSource(Character source) {
         this.source = source;
     }
+
+    public int getSpeed() {
+        return speed;
+    }
     
+    public void setSpeed(){
+        if(this instanceof Consumable)
+            speed=101;//More than max of dexteririty
+        else
+            speed=this.getSource().getCharac(Characteristic.DEXTERITY);
+        
+    }
     
     
     

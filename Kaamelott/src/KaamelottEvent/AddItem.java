@@ -94,7 +94,7 @@ public class AddItem implements Event{
             }
             
             String messError="Please chose a number between 0 and "+team.getTeamNumber();
-            nbCharac=display.getNumber(0,team.getTeamNumber(),mess,messError);
+            nbCharac=display.getNumber(0,team.getTeamNumber()-1,mess,messError);
             
         }
         team.getCharacterI(nbCharac).addEquipment(item);
