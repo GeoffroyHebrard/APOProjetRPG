@@ -18,8 +18,11 @@ public class CreateCharacter implements Event{
 
     private DisplayText display;   
     private final int type=1;
+    private static int nbCharac=0;
+    
     public CreateCharacter(DisplayText display) {
         this.display = display;
+        
     }
 
     public int getType() {
@@ -50,6 +53,7 @@ public class CreateCharacter implements Event{
     }
     
     public void addCharac(Team team){
+        nbCharac++;
         KaamelottCharacter.Character charac;
         int choice=askType();
         String name=askName();
@@ -71,7 +75,10 @@ public class CreateCharacter implements Event{
     
     
         charac.addPotions();                
-        team.addCharacterTeam(charac)  ;
+        team.addCharacterTeam(charac);
+        if (nbCharac>4)
+            charac.addKillerParchment();
+            
     }
     
     

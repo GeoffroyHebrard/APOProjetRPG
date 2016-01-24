@@ -101,10 +101,10 @@ public class Turn {
    
    public Action choseConsumable(Controller cont,Character character){
        List<Consumable> listConsumables= character.getConsumables();
-        String mess="Chose an object to use \n";
+        String mess="Chose an object to use";
         int max=listConsumables.size();
         for(int i=0; i<max; i++) 
-            {mess=mess+i+"-"+listConsumables.get(i).getName()+"("+listConsumables.get(i).getNumber()+")";}
+            {mess=mess+"\n"+i+"-"+listConsumables.get(i).getName()+"("+listConsumables.get(i).getNumber()+")";}
             mess=mess+"\n"+max+" -Return";
             String messError="chose a number between 0 and "+max;
        int num= display.getNumber(0,max,mess,messError); 

@@ -120,6 +120,13 @@ public abstract class Character {
         Consumable potion = new Consumable(effect,5,"potion",this,this);
         consumables.add(potion);
     }
+    public void addKillerParchment(){
+        Effect effect = new Effect(this,-200, Characteristic.HEALTH);
+        Consumable KP = new Consumable(effect,2,"Killer Parchment",this,this);
+        consumables.add(KP);
+    }
+            
+            
     public Consumable getConsumableI(int i)
     {
         return consumables.get(i);

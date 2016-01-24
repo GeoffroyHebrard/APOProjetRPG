@@ -5,11 +5,14 @@
         <group>
             <file>file:/C:/Users/Kalo/Desktop/APOProjetRPG/Kaamelott/src/KaamelottCharacter/Character.java</file>
             <file>file:/C:/Users/Kalo/Desktop/APOProjetRPG/Kaamelott/src/KaamelottItemization/Item.java</file>
+            <file>file:/C:/Users/Kalo/Desktop/APOProjetRPG/Kaamelott/src/KaamelottControl/DisplayText.java</file>
             <file>file:/C:/Users/Kalo/Desktop/APOProjetRPG/Kaamelott/src/KaamelottControl/Team.java</file>
             <file>file:/C:/Users/Kalo/Desktop/APOProjetRPG/Kaamelott/src/KaamelottEvent/AddItem.java</file>
             <file>file:/C:/Users/Kalo/Desktop/APOProjetRPG/Kaamelott/src/KaamelottItemization/Armor.java</file>
+            <file>file:/C:/Users/Kalo/Desktop/APOProjetRPG/Kaamelott/src/KaamelottEvent/CreateCharacter.java</file>
             <file>file:/C:/Users/Kalo/Desktop/APOProjetRPG/Kaamelott/src/KaamelottEvent/AddCapacity.java</file>
             <file>file:/C:/Users/Kalo/Desktop/APOProjetRPG/Kaamelott/src/KaamelottItemization/Weapon.java</file>
+            <file>file:/C:/Users/Kalo/Desktop/APOProjetRPG/Kaamelott/src/KaamelottItemization/Consumable.java</file>
             <file>file:/C:/Users/Kalo/Desktop/APOProjetRPG/Kaamelott/src/KaamelottCapacities/Attack.java</file>
         </group>
     </open-files>
