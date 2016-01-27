@@ -13,4 +13,4 @@ Jeu--------------------------------------------------------------
 Pour interagir avec le jeu, il faudra entrer des nombres ou des noms de joueur à l'aide du clavier afin d'eefectuer les actions possibles.
 
 Univers--------------------------------------------------------------
-Le jeu se passe dabs l'univers de Kaamelott
+Le jeu se passe dans l'univers de Kaamelott
