@@ -2,8 +2,9 @@
 KAAMELOTT
 
 Lancement--------------------------------------------------------------
-En 1er, dézipper l'archive.
+
 Pour lancer le jeu, Netbeans est nécessaire.
+https://netbeans.org/downloads/
 Il suffit ensuite de lancer le projet Kaamelott, 
 et de l'éxécuter.
 
