@@ -161,6 +161,8 @@ public class Scenario {
     
      public void readScenario()
     {
+        display.display("In this story, the 1st character you chose will be the main character, and the two followings will be his partners");
+        display.display("If you want, you can call the main character Arthur, and his partners Lancelot and Merlin");
         for(int i=0;i<events.size();i++)
         {
 
